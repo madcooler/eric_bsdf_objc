@@ -1,0 +1,4 @@
+/Users/administrator/Desktop/eric_bsdf/CMakeFiles/install.dir
+/Users/administrator/Desktop/eric_bsdf/CMakeFiles/eric_bsdf.dir
+/Users/administrator/Desktop/eric_bsdf/CMakeFiles/ALL_BUILD.dir
+/Users/administrator/Desktop/eric_bsdf/CMakeFiles/ZERO_CHECK.dir
