@@ -1,8 +1,8 @@
 //
-//  MicrosurfaceSlope.m
-//  art
+//  MicrosurfaceHeight.h
+//  imp
 //
-//  Created by Administrator on 30/10/16.
+//  Created by Chi Wang on 30/10/16.
 //
 //
 
@@ -14,15 +14,21 @@
     : (const float) alpha_x
     : (const float) alpha_y
 {
+    self = [super init];
+    
     m_alpha_x = alpha_x;
     m_alpha_y = alpha_y;
+    
     return self;
 }
 
 -(id)init
 {
+    self = [super init];
+    
     m_alpha_x = 1.0f;
     m_alpha_y = 1.0f;
+    
     return self;
 }
 
@@ -172,7 +178,7 @@
     : (const float) alpha_x
     : (const float) alpha_y
 {
-    [super init
+    self =[super init
         : alpha_x
         : alpha_y
         ];
@@ -181,7 +187,7 @@
 
 -(id)init
 {
-    [super init];
+    self =[super init];
     return self;
 }
 
@@ -322,6 +328,146 @@
 @end
 
 
+
+@implementation MicrosurfaceSlopeGGX
+
+-(id)init
+    : (const float) alpha_x
+    : (const float) alpha_y
+{
+    self =[super init
+        : alpha_x
+        : alpha_y
+        ];
+    return self;
+}
+
+-(id)init
+{
+    self =[super init];
+    return self;
+}
+
+// distribution of slopes
+-(float) P22
+    : (const float )    slope_x
+    : (const float )    slope_y
+{
+    const float tmp = 1.0f + slope_x*slope_x/(m_alpha_x*m_alpha_x) + slope_y*slope_y/(m_alpha_y*m_alpha_y);
+	const float value = 1.0f / (M_PI * m_alpha_x * m_alpha_y) / (tmp * tmp);
+	return value;
+}
+
+// Smith's Lambda function
+-(float) Lambda
+    : (const Vec3D *) wi_art
+{
+    struct vec3 wi = Vec3D_to_vec3(wi_art);
+    
+    if(wi.z > 0.9999f)
+		return 0.0f;
+	if(wi.z < -0.9999f)
+		return -1.0f;
+
+	// a
+	const float theta_i = acosf(wi.z);
+	const float a = 1.0f/tanf(theta_i)/ [self alpha_i:wi_art];
+
+	// value
+	const float value = 0.5f * (-1.0f + sign(a) * sqrtf(1 + 1/(a*a)));
+
+	return value;
+}
+
+// projected area towards incident direction
+-(float) projectedArea
+    : (const Vec3D *) wi_art
+{
+    struct vec3 wi = Vec3D_to_vec3(wi_art);
+    
+    if(wi.z > 0.9999f)
+		return 1.0f;
+	if(wi.z < -0.9999f)
+		return 0.0f;
+
+	// a
+	const float alphai = [self alpha_i : wi_art];
+	const float theta_i = acosf(wi.z);
+	const float sin_theta_i = sinf(theta_i);
+
+	// value
+	const float value = 0.5f * ( wi.z + sqrtf( wi.z * wi.z + sin_theta_i * sin_theta_i * alphai * alphai));
+
+	return value;
+}
+
+// sample the distribution of visible slopes with alpha=1.0
+-(Vec2D) sampleP22_11
+    : (const float )    theta_i
+    : (const float )    U_1
+    : (const float )    U_2
+{
+    struct vec2 slope;
+    Vec2D slope_art;
+    
+    
+    if(theta_i < 0.0001f)
+	{
+		const float r = sqrtf( U_1 / ( 1.0f - U_1 ) );
+		const float phi = 6.28318530718f * U_2;
+		slope.x = r * cosf(phi);
+		slope.y = r * sinf(phi);
+		slope_art = vec2_to_Vec2D(slope);
+		return slope_art;
+
+	}
+    
+    // constant
+	const float sin_theta_i = sinf(theta_i);
+	const float cos_theta_i = cosf(theta_i);
+	const float tan_theta_i = sin_theta_i/cos_theta_i;
+
+	// slope associated to theta_i
+	const float slope_i = cos_theta_i/sin_theta_i;
+
+	// projected area
+	const float projectedarea = 0.5f * (cos_theta_i + 1.0f);
+	if(projectedarea < 0.0001f || projectedarea!=projectedarea)
+		return vec2_to_Vec2D(vec2(0,0));
+    
+	// normalization coefficient
+	const float c = 1.0f / projectedarea;
+
+	const float A = 2.0f * U_1/ cos_theta_i /c - 1.0f;
+	const float B = tan_theta_i;
+	const float tmp = 1.0f / (A*A-1.0f);
+
+	const float D = sqrtf(fmaxf(0.0f, B*B*tmp*tmp - (A*A-B*B)*tmp));
+	const float slope_x_1 = B*tmp - D;
+	const float slope_x_2 = B*tmp + D;
+	slope.x = (A < 0.0f || slope_x_2 > 1.0f/tan_theta_i) ? slope_x_1 : slope_x_2;
+
+	float U2;
+	float S;
+	if(U_2 > 0.5f)
+	{
+        S = 1.0f;
+        U2 = 2.0f*(U_2-0.5f);
+	}
+	else
+	{
+        S = -1.0f;
+        U2 = 2.0f*(0.5f-U_2);
+	}
+	const float z = ( U2 * ( U2 * ( U2 * 0.27385f-0.73369f)+ 0.46341f)) / ( U2 * ( U2 * ( U2 * 0.093073f + 0.309420f ) - 1.000000f ) + 0.597999f);
+	slope.y = S * z * sqrtf(1.0f+slope.x*slope.x);
+    
+    slope_art = vec2_to_Vec2D(slope);
+	return slope_art;
+}
+
+
+@end
 
 
 

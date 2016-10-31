@@ -1,8 +1,8 @@
 //
-//  MicrosurfaceSlope.h
-//  art
+//  MicrosurfaceHeight.h
+//  imp
 //
-//  Created by Administrator on 30/10/16.
+//  Created by Chi Wang on 30/10/16.
 //
 //
 
@@ -114,3 +114,43 @@
 
 @end
 
+
+@interface MicrosurfaceSlopeGGX : MicrosurfaceSlope
+{
+
+}
+
+-(id)init
+    ;
+    
+-(id)init
+    : (const float) alpha_x
+    : (const float) alpha_x
+    ;
+
+
+// distribution of slopes
+-(float) P22
+    : (const float )    slope_x
+    : (const float )    slope_y
+    ;
+
+// Smith's Lambda function
+-(float) Lambda
+    : (const Vec3D *) wi_art
+    ;
+
+// projected area towards incident direction
+-(float) projectedArea
+    : (const Vec3D *) wi_art
+    ;
+
+// sample the distribution of visible slopes with alpha=1.0
+-(Vec2D) sampleP22_11
+    : (const float )    theta_i
+    : (const float )    U_1
+    : (const float )    U_2
+    ;
+
+
+@end

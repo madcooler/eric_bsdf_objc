@@ -1,14 +1,20 @@
 //
-//  MicrosurfaceHeight.m
+//  MicrosurfaceHeight.h
 //  imp
 //
-//  Created by Administrator on 30/10/16.
+//  Created by Chi Wang on 30/10/16.
 //
 //
 
 #import "MicrosurfaceHeight.h"
 
 @implementation MicrosurfaceHeight
+
+-(id)init
+{
+    self = [super init];
+    return self;
+}
 
 -(float) P1
     :(const float) h
@@ -32,6 +38,11 @@
 
 
 @implementation MicrosurfaceHeightUniform
+-(id)init
+{
+    self = [super init];
+    return self;
+}
 
 -(float) P1
     :(const float) h
@@ -57,6 +68,12 @@
 @end
 
 @implementation MicrosurfaceHeightGaussian
+
+-(id)init
+{
+    self = [super init];
+    return self;
+}
 
 -(float) P1
     :(const float) h

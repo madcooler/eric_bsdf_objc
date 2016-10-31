@@ -1,8 +1,8 @@
 //
-//  EricBSDF_BasicFunctions.h
+//  MicrosurfaceHeight.h
 //  imp
 //
-//  Created by Administrator on 30/10/16.
+//  Created by Chi Wang on 30/10/16.
 //
 //
 
@@ -32,7 +32,7 @@
 
 double eric_erf(double x);
 float  eric_erfinv(float x);
-
+double generateRandomNumber();
 
 /*
  * A method to compute the gamma() function.
@@ -44,7 +44,7 @@ double  eric_abgam (double x);
 double  eric_gamma (double x);
 double  eric_beta (double m, double n);
 int     IsFiniteNumber(double x);
-
+double  sign(double x);
 // vec3 and vec2
 
 struct vec2
@@ -70,6 +70,8 @@ struct vec3 vec3(double x, double y, double z);
 float length(struct vec3 v);
 
 struct vec3 normalize(struct vec3 v);
+
+struct vec3 negtive(struct vec3 v);
 
 struct vec3 Vec3D_to_vec3(const Vec3D * v);
 

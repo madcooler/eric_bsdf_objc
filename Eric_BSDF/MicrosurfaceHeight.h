@@ -2,7 +2,7 @@
 //  MicrosurfaceHeight.h
 //  imp
 //
-//  Created by Administrator on 30/10/16.
+//  Created by Chi Wang on 30/10/16.
 //
 //
 
@@ -11,7 +11,11 @@
 
 
 @interface MicrosurfaceHeight : ArcObject
+{
 
+}
+-(id)init
+    ;
 
 -(float) P1
     :(const float) h;
@@ -27,7 +31,13 @@
 
 
 @interface MicrosurfaceHeightUniform : MicrosurfaceHeight
+{
 
+}
+
+-(id)init
+    ;
+    
 -(float) P1
     :(const float) h;
 
@@ -42,6 +52,12 @@
 
 
 @interface MicrosurfaceHeightGaussian : MicrosurfaceHeight
+{
+
+}
+
+-(id)init
+    ;
 
 -(float) P1
     :(const float) h;

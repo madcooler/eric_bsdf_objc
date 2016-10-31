@@ -1,12 +1,17 @@
 //
-//  EricBSDF_BasicFunctions.c
-//  eric_bsdf
+//  MicrosurfaceHeight.h
+//  imp
 //
-//  Created by Administrator on 31/10/2016.
+//  Created by Chi Wang on 30/10/16.
 //
 //
 
 #include "EricBSDF_BasicFunctions.h"
+
+double generateRandomNumber()
+{
+    return 0;
+}
 
 double eric_erf(double x)
 {
@@ -93,6 +98,14 @@ double  eric_beta (double m, double n)
   return (eric_gamma (m)* eric_gamma (n) / eric_gamma (m + n));
 }
 
+double sign(double x)
+{
+    if(x>0)
+    return 1;
+    else
+    return -1;
+}
+
 int IsFiniteNumber(double x)
 {
     if( x < INFINITY)
@@ -128,6 +141,11 @@ struct vec3 normalize(struct vec3 v)
 {
     double l = length(v);
     return vec3(v.x/l,v.y/l,v.z/l);
+}
+
+struct vec3 negtive(struct vec3 v)
+{
+    return vec3(-v.x,-v.y,-v.z);
 }
 
 struct vec3 Vec3D_to_vec3(const Vec3D * v)
