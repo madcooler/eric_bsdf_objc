@@ -113,6 +113,24 @@ int IsFiniteNumber(double x)
     else return 0;
 }
 
+
+
+ // build orthonormal basis (Building an Orthonormal Basis from a 3D Unit Vector Without Normalization, [Frisvad2012])
+void buildOrthonormalBasis(struct vec3 * omega_1, struct vec3 * omega_2, const struct vec3 * omega_3)
+{
+	if(omega_3->z < -0.9999999f)
+	{
+	   *omega_1 = vec3 ( 0.0f , -1.0f , 0.0f );
+	   *omega_2 = vec3 ( -1.0f , 0.0f , 0.0f );
+	} else {
+	   const float a = 1.0f /(1.0f + omega_3->z );
+	   const float b = -omega_3->x*omega_3->y*a ;
+	   *omega_1 = vec3 (1.0f - omega_3->x*omega_3->x*a , b , -omega_3->x );
+	   *omega_2 = vec3 (b , 1.0f - omega_3->y*omega_3->y*a , -omega_3->y );
+	}
+}
+
+
 // constructor of vec2
 struct vec2 vec2(double x, double y)
 {
@@ -142,6 +160,17 @@ struct vec3 normalize(struct vec3 v)
     double l = length(v);
     return vec3(v.x/l,v.y/l,v.z/l);
 }
+
+struct vec3 vec3_add (struct vec3 v1,struct vec3 v2)
+{
+    return vec3(v1.x+v2.x,v1.y+v2.y,v1.z+v2.z);
+}
+
+struct vec3 vec3_mul (struct vec3 v,double l)
+{
+    return vec3(v.x*l,v.y*l,v.z*l);
+}
+
 
 struct vec3 negtive(struct vec3 v)
 {
@@ -174,5 +203,7 @@ Vec2D vec2_to_Vec2D(struct vec2 v)
     Vec2D v2d = VEC2D(v.x, v.y);
     return v2d;
 }
+
+
 
 

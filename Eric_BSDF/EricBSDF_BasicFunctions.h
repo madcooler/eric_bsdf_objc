@@ -45,6 +45,9 @@ double  eric_gamma (double x);
 double  eric_beta (double m, double n);
 int     IsFiniteNumber(double x);
 double  sign(double x);
+
+
+
 // vec3 and vec2
 
 struct vec2
@@ -71,6 +74,8 @@ float length(struct vec3 v);
 
 struct vec3 normalize(struct vec3 v);
 
+struct vec3 vec3_add (struct vec3 v1,struct vec3 v2);
+
 struct vec3 negtive(struct vec3 v);
 
 struct vec3 Vec3D_to_vec3(const Vec3D * v);
@@ -81,6 +86,6 @@ struct vec2 Vec2D_to_vec2(const Vec2D * v);
 
 Vec2D vec2_to_Vec2D(struct vec2 v);
 
-
+void buildOrthonormalBasis(struct vec3 * omega_1, struct vec3 * omega_2, const struct vec3 * omega_3);
 
 #endif /* EricBSDF_BasicFunctions_h */

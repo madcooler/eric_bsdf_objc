@@ -47,9 +47,12 @@
 
 /* Begin PBXBuildFile section */
 		3ED9B8CD299748F3A3195D59 /* eric_bsdf.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B69FA9F60CF455C847B57B1 /* eric_bsdf.m */; settings = {COMPILER_FLAGS = ""; }; };
+		C302183B1DC8D6000003598A /* BasicFunctionCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = C302183A1DC8D5FC0003598A /* BasicFunctionCollection.m */; };
+		C302183C1DC8D6030003598A /* FresnelFunctionCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = C30218381DC8D4FC0003598A /* FresnelFunctionCollection.m */; };
 		C37BE1C01DC7536100A3BC1E /* MicrosurfaceSlope.m in Sources */ = {isa = PBXBuildFile; fileRef = C37BE1BF1DC7467800A3BC1E /* MicrosurfaceSlope.m */; };
 		C37BE1C31DC75ABA00A3BC1E /* EricBSDF_BasicFunctions.c in Sources */ = {isa = PBXBuildFile; fileRef = C37BE1C21DC75ABA00A3BC1E /* EricBSDF_BasicFunctions.c */; };
 		C37BE1C41DC75BB200A3BC1E /* MicrosurfaceHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = C37BE1BE1DC7467800A3BC1E /* MicrosurfaceHeight.m */; };
+		C3EB9D2D1DC7818400A2C51D /* Microsurface.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EB9D2C1DC7818400A2C51D /* Microsurface.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,12 +92,18 @@
 		788EB14E05F645468BBC96BC /* eric_bsdf */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = eric_bsdf; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B69FA9F60CF455C847B57B1 /* eric_bsdf.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; path = eric_bsdf.m; sourceTree = SOURCE_ROOT; };
 		9D7E764910CD4B3D9D66B825 /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		C30218371DC8D4FC0003598A /* FresnelFunctionCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FresnelFunctionCollection.h; path = Eric_BSDF/FresnelFunctionCollection.h; sourceTree = "<group>"; };
+		C30218381DC8D4FC0003598A /* FresnelFunctionCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FresnelFunctionCollection.m; path = Eric_BSDF/FresnelFunctionCollection.m; sourceTree = "<group>"; };
+		C30218391DC8D5FC0003598A /* BasicFunctionCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BasicFunctionCollection.h; path = Eric_BSDF/BasicFunctionCollection.h; sourceTree = "<group>"; };
+		C302183A1DC8D5FC0003598A /* BasicFunctionCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BasicFunctionCollection.m; path = Eric_BSDF/BasicFunctionCollection.m; sourceTree = "<group>"; };
 		C37BE1BB1DC7467800A3BC1E /* EricBSDF_BasicFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EricBSDF_BasicFunctions.h; path = Eric_BSDF/EricBSDF_BasicFunctions.h; sourceTree = "<group>"; };
 		C37BE1BC1DC7467800A3BC1E /* MicrosurfaceHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MicrosurfaceHeight.h; path = Eric_BSDF/MicrosurfaceHeight.h; sourceTree = "<group>"; };
 		C37BE1BD1DC7467800A3BC1E /* MicrosurfaceSlope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MicrosurfaceSlope.h; path = Eric_BSDF/MicrosurfaceSlope.h; sourceTree = "<group>"; };
 		C37BE1BE1DC7467800A3BC1E /* MicrosurfaceHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MicrosurfaceHeight.m; path = Eric_BSDF/MicrosurfaceHeight.m; sourceTree = "<group>"; };
 		C37BE1BF1DC7467800A3BC1E /* MicrosurfaceSlope.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MicrosurfaceSlope.m; path = Eric_BSDF/MicrosurfaceSlope.m; sourceTree = "<group>"; };
 		C37BE1C21DC75ABA00A3BC1E /* EricBSDF_BasicFunctions.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = EricBSDF_BasicFunctions.c; path = Eric_BSDF/EricBSDF_BasicFunctions.c; sourceTree = "<group>"; };
+		C3EB9D2B1DC7818400A2C51D /* Microsurface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Microsurface.h; path = Eric_BSDF/Microsurface.h; sourceTree = "<group>"; };
+		C3EB9D2C1DC7818400A2C51D /* Microsurface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Microsurface.m; path = Eric_BSDF/Microsurface.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -177,12 +186,18 @@
 		C37BE1BA1DC7466300A3BC1E /* Eric_BSDF */ = {
 			isa = PBXGroup;
 			children = (
+				C30218391DC8D5FC0003598A /* BasicFunctionCollection.h */,
+				C302183A1DC8D5FC0003598A /* BasicFunctionCollection.m */,
+				C30218371DC8D4FC0003598A /* FresnelFunctionCollection.h */,
+				C30218381DC8D4FC0003598A /* FresnelFunctionCollection.m */,
 				C37BE1BB1DC7467800A3BC1E /* EricBSDF_BasicFunctions.h */,
 				C37BE1C21DC75ABA00A3BC1E /* EricBSDF_BasicFunctions.c */,
 				C37BE1BC1DC7467800A3BC1E /* MicrosurfaceHeight.h */,
 				C37BE1BE1DC7467800A3BC1E /* MicrosurfaceHeight.m */,
 				C37BE1BD1DC7467800A3BC1E /* MicrosurfaceSlope.h */,
 				C37BE1BF1DC7467800A3BC1E /* MicrosurfaceSlope.m */,
+				C3EB9D2B1DC7818400A2C51D /* Microsurface.h */,
+				C3EB9D2C1DC7818400A2C51D /* Microsurface.m */,
 			);
 			name = Eric_BSDF;
 			sourceTree = "<group>";
@@ -276,8 +291,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C37BE1C31DC75ABA00A3BC1E /* EricBSDF_BasicFunctions.c in Sources */,
+				C302183C1DC8D6030003598A /* FresnelFunctionCollection.m in Sources */,
+				C3EB9D2D1DC7818400A2C51D /* Microsurface.m in Sources */,
 				C37BE1C01DC7536100A3BC1E /* MicrosurfaceSlope.m in Sources */,
 				3ED9B8CD299748F3A3195D59 /* eric_bsdf.m in Sources */,
+				C302183B1DC8D6000003598A /* BasicFunctionCollection.m in Sources */,
 				C37BE1C41DC75BB200A3BC1E /* MicrosurfaceHeight.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
