@@ -11,7 +11,8 @@
 // ART library imports
 #import "AdvancedRenderingToolkit.h"
 
-#import "Eric_BSDF/MicrosurfaceSlope.h"
+#import "Eric_BSDF/Microsurface.h"
+
 
 // define some default values
 #define     IMP_DEFAULT_INCIDENT_ANGLE          40 DEGREES
@@ -30,7 +31,7 @@ int eric_bsdf(
     struct vec3 v1,vv;
     struct vec2 v2;
     
-    v1 = vec3(1, 2, 3);
+    v1 = vec3(1, 2, -3);
     v2 = vec2(2, 3);
 
     v1 = normalize(v1);
@@ -39,12 +40,13 @@ int eric_bsdf(
     
     wi_11 = normalize(vec3(5,2,3));
     
-    Vec3D v3d;
-    v3d = vec3_to_Vec3D(v1);
+    Vec3D v3d_i,v3d_o;
+    v3d_i = vec3_to_Vec3D(v1);
+    v3d_o = vec3_to_Vec3D(wi_11);
     
-    
-    MicrosurfaceSlopeBeckmann * msb;
-    msb = [MicrosurfaceSlopeBeckmann init];
+    MicrosurfaceConductor * mc;
+    mc = [ALLOC_INIT_OBJECT(MicrosurfaceConductor) : YES: YES:0.1:0.1];
+    float a = [mc eval:&v3d_i :&v3d_o :0];
 
 
 /* ---------------------------------------------------------------------------

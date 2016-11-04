@@ -534,4 +534,5 @@ dependencies: \
   /Users/administrator/Library/ART_Resources/arm2art/include/ColourAndLightSubsystem.h \
   /Users/administrator/Desktop/eric_bsdf/Eric_BSDF/MicrosurfaceSlope.h \
   /Users/administrator/Desktop/eric_bsdf/Eric_BSDF/EricBSDF_BasicFunctions.h \
-  /Users/administrator/Desktop/eric_bsdf/Eric_BSDF/MicrosurfaceHeight.h
+  /Users/administrator/Desktop/eric_bsdf/Eric_BSDF/MicrosurfaceHeight.h \
+  /Users/administrator/Desktop/eric_bsdf/Eric_BSDF/BasicFunctionCollection.h

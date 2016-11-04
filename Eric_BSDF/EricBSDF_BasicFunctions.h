@@ -12,6 +12,7 @@
 #include "Vec3D.h"
 #include "Vec2D.h"
 
+
 #include <math.h>
 //#include <iostream.h>
 //#include <algorithm.h>
@@ -32,7 +33,7 @@
 
 double eric_erf(double x);
 float  eric_erfinv(float x);
-double generateRandomNumber();
+
 
 /*
  * A method to compute the gamma() function.

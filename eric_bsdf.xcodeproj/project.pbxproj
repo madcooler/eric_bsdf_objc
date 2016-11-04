@@ -7,38 +7,38 @@
 	objects = {
 
 /* Begin PBXAggregateTarget section */
-		1F73B956F6DC47DDBD5B8447 /* install */ = {
+		B1A73D68D3D044849A368967 /* install */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = 881BC4FFBBB548FBBE916B3A /* Build configuration list for PBXAggregateTarget "install" */;
+			buildConfigurationList = FB2C6DE28B2642089D254534 /* Build configuration list for PBXAggregateTarget "install" */;
 			buildPhases = (
-				9A21457ED08747A898DE3FD2 /* CMake PostBuild Rules */,
+				F6F18174D94C43099AD87E43 /* CMake PostBuild Rules */,
 			);
 			dependencies = (
-				EBD5D65835264886B68DF7F5 /* PBXTargetDependency */,
+				2C2CC730D64648928A2AD069 /* PBXTargetDependency */,
 			);
 			name = install;
 			productName = install;
 		};
-		603CDCD9261C4181AD95BF4C /* ZERO_CHECK */ = {
+		D7584A3166B84410A54C37A5 /* ZERO_CHECK */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = B62FF8C1ABF14617B48652A2 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
+			buildConfigurationList = E472CE93676D4390996B043B /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
 			buildPhases = (
-				4632095F70E446639A38ABCB /* CMake Rules */,
+				4CB25DA5D09C44988E495226 /* CMake Rules */,
 			);
 			dependencies = (
 			);
 			name = ZERO_CHECK;
 			productName = ZERO_CHECK;
 		};
-		B3174335B4394876AA27C761 /* ALL_BUILD */ = {
+		DF245BE8A7FA4A1EB01E52D8 /* ALL_BUILD */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = 86660E40A19C4B7BBAA9DBE1 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
+			buildConfigurationList = EF259E49C2B0408BB2851420 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
 			buildPhases = (
-				857321C320AD4033A5B7728D /* CMake Rules */,
+				3669213181DF414C9A5FC894 /* CMake Rules */,
 			);
 			dependencies = (
-				BD4A1F18A8314F3A9E059918 /* PBXTargetDependency */,
-				DC95C509C88A4883870BC01C /* PBXTargetDependency */,
+				0AFEC7075960407393B80D09 /* PBXTargetDependency */,
+				A898A733B7B449518C02DE15 /* PBXTargetDependency */,
 			);
 			name = ALL_BUILD;
 			productName = ALL_BUILD;
@@ -46,222 +46,211 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		3ED9B8CD299748F3A3195D59 /* eric_bsdf.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B69FA9F60CF455C847B57B1 /* eric_bsdf.m */; settings = {COMPILER_FLAGS = ""; }; };
-		C302183B1DC8D6000003598A /* BasicFunctionCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = C302183A1DC8D5FC0003598A /* BasicFunctionCollection.m */; };
-		C302183C1DC8D6030003598A /* FresnelFunctionCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = C30218381DC8D4FC0003598A /* FresnelFunctionCollection.m */; };
-		C37BE1C01DC7536100A3BC1E /* MicrosurfaceSlope.m in Sources */ = {isa = PBXBuildFile; fileRef = C37BE1BF1DC7467800A3BC1E /* MicrosurfaceSlope.m */; };
-		C37BE1C31DC75ABA00A3BC1E /* EricBSDF_BasicFunctions.c in Sources */ = {isa = PBXBuildFile; fileRef = C37BE1C21DC75ABA00A3BC1E /* EricBSDF_BasicFunctions.c */; };
-		C37BE1C41DC75BB200A3BC1E /* MicrosurfaceHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = C37BE1BE1DC7467800A3BC1E /* MicrosurfaceHeight.m */; };
-		C3EB9D2D1DC7818400A2C51D /* Microsurface.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EB9D2C1DC7818400A2C51D /* Microsurface.m */; };
+		9B190E18BD4E45989DA98C8E /* eric_bsdf.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EDEDCFC74A74B7D905CBC4C /* eric_bsdf.m */; settings = {COMPILER_FLAGS = ""; }; };
+		C36100A51DCC9C4600ED6D67 /* EricBSDF_BasicFunctions.c in Sources */ = {isa = PBXBuildFile; fileRef = C361009F1DCC9C2500ED6D67 /* EricBSDF_BasicFunctions.c */; };
+		C36100A61DCC9C4900ED6D67 /* BasicFunctionCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = C36100A01DCC9C2500ED6D67 /* BasicFunctionCollection.m */; };
+		C36100A71DCC9C4C00ED6D67 /* FresnelFunctionCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = C36100A11DCC9C2500ED6D67 /* FresnelFunctionCollection.m */; };
+		C36100A81DCC9C4E00ED6D67 /* Microsurface.m in Sources */ = {isa = PBXBuildFile; fileRef = C36100A21DCC9C2500ED6D67 /* Microsurface.m */; };
+		C36100A91DCC9C5100ED6D67 /* MicrosurfaceHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = C36100A31DCC9C2500ED6D67 /* MicrosurfaceHeight.m */; };
+		C36100AA1DCC9C5300ED6D67 /* MicrosurfaceSlope.m in Sources */ = {isa = PBXBuildFile; fileRef = C36100A41DCC9C2500ED6D67 /* MicrosurfaceSlope.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		0AB98F1667934AFAA97508B9 /* PBXContainerItemProxy */ = {
+		7041C90EFDD34C42BF1BF71B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = C1DA77088CAB47A6B550C015 /* Project object */;
+			containerPortal = E15E578E08C24E05B82C5B7F /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 92693C50AFC24CFD83FA76EA;
-			remoteInfo = eric_bsdf;
-		};
-		5AEA5F5737BB46CCB04BF28C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C1DA77088CAB47A6B550C015 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B3174335B4394876AA27C761;
+			remoteGlobalIDString = DF245BE8A7FA4A1EB01E52D8;
 			remoteInfo = ALL_BUILD;
 		};
-		90122CE53AD944E1B94934CD /* PBXContainerItemProxy */ = {
+		8027CF73A81D4F53930607C6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = C1DA77088CAB47A6B550C015 /* Project object */;
+			containerPortal = E15E578E08C24E05B82C5B7F /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 603CDCD9261C4181AD95BF4C;
+			remoteGlobalIDString = D7584A3166B84410A54C37A5;
 			remoteInfo = ZERO_CHECK;
 		};
-		BB0ED50ECBF84F31AB37F2E0 /* PBXContainerItemProxy */ = {
+		856E6E5632C646E5AF6B7921 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = C1DA77088CAB47A6B550C015 /* Project object */;
+			containerPortal = E15E578E08C24E05B82C5B7F /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 603CDCD9261C4181AD95BF4C;
+			remoteGlobalIDString = 2679D25460EF4B5B9771EAE6;
+			remoteInfo = eric_bsdf;
+		};
+		C368C33741C74770951ABF00 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E15E578E08C24E05B82C5B7F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D7584A3166B84410A54C37A5;
 			remoteInfo = ZERO_CHECK;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3B5C485DBE284D7BA33A2EF5 /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
-		3E61B53ACBB54ACD8C6CC43D /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
-		788EB14E05F645468BBC96BC /* eric_bsdf */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = eric_bsdf; sourceTree = BUILT_PRODUCTS_DIR; };
-		7B69FA9F60CF455C847B57B1 /* eric_bsdf.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; path = eric_bsdf.m; sourceTree = SOURCE_ROOT; };
-		9D7E764910CD4B3D9D66B825 /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
-		C30218371DC8D4FC0003598A /* FresnelFunctionCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FresnelFunctionCollection.h; path = Eric_BSDF/FresnelFunctionCollection.h; sourceTree = "<group>"; };
-		C30218381DC8D4FC0003598A /* FresnelFunctionCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FresnelFunctionCollection.m; path = Eric_BSDF/FresnelFunctionCollection.m; sourceTree = "<group>"; };
-		C30218391DC8D5FC0003598A /* BasicFunctionCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BasicFunctionCollection.h; path = Eric_BSDF/BasicFunctionCollection.h; sourceTree = "<group>"; };
-		C302183A1DC8D5FC0003598A /* BasicFunctionCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BasicFunctionCollection.m; path = Eric_BSDF/BasicFunctionCollection.m; sourceTree = "<group>"; };
-		C37BE1BB1DC7467800A3BC1E /* EricBSDF_BasicFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EricBSDF_BasicFunctions.h; path = Eric_BSDF/EricBSDF_BasicFunctions.h; sourceTree = "<group>"; };
-		C37BE1BC1DC7467800A3BC1E /* MicrosurfaceHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MicrosurfaceHeight.h; path = Eric_BSDF/MicrosurfaceHeight.h; sourceTree = "<group>"; };
-		C37BE1BD1DC7467800A3BC1E /* MicrosurfaceSlope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MicrosurfaceSlope.h; path = Eric_BSDF/MicrosurfaceSlope.h; sourceTree = "<group>"; };
-		C37BE1BE1DC7467800A3BC1E /* MicrosurfaceHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MicrosurfaceHeight.m; path = Eric_BSDF/MicrosurfaceHeight.m; sourceTree = "<group>"; };
-		C37BE1BF1DC7467800A3BC1E /* MicrosurfaceSlope.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MicrosurfaceSlope.m; path = Eric_BSDF/MicrosurfaceSlope.m; sourceTree = "<group>"; };
-		C37BE1C21DC75ABA00A3BC1E /* EricBSDF_BasicFunctions.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = EricBSDF_BasicFunctions.c; path = Eric_BSDF/EricBSDF_BasicFunctions.c; sourceTree = "<group>"; };
-		C3EB9D2B1DC7818400A2C51D /* Microsurface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Microsurface.h; path = Eric_BSDF/Microsurface.h; sourceTree = "<group>"; };
-		C3EB9D2C1DC7818400A2C51D /* Microsurface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Microsurface.m; path = Eric_BSDF/Microsurface.m; sourceTree = "<group>"; };
+		13A42CF2337145C49B2C22F1 /* eric_bsdf */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = eric_bsdf; sourceTree = BUILT_PRODUCTS_DIR; };
+		3EDEDCFC74A74B7D905CBC4C /* eric_bsdf.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; path = eric_bsdf.m; sourceTree = SOURCE_ROOT; };
+		648E7CBE4B0F466E824411DC /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		84DBF1CBD811446A973C9DE1 /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		B30697F1BBBC4E13BEAD0014 /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		C36100991DCC9C2500ED6D67 /* BasicFunctionCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BasicFunctionCollection.h; path = Eric_BSDF/BasicFunctionCollection.h; sourceTree = "<group>"; };
+		C361009A1DCC9C2500ED6D67 /* EricBSDF_BasicFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EricBSDF_BasicFunctions.h; path = Eric_BSDF/EricBSDF_BasicFunctions.h; sourceTree = "<group>"; };
+		C361009B1DCC9C2500ED6D67 /* FresnelFunctionCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FresnelFunctionCollection.h; path = Eric_BSDF/FresnelFunctionCollection.h; sourceTree = "<group>"; };
+		C361009C1DCC9C2500ED6D67 /* Microsurface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Microsurface.h; path = Eric_BSDF/Microsurface.h; sourceTree = "<group>"; };
+		C361009D1DCC9C2500ED6D67 /* MicrosurfaceHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MicrosurfaceHeight.h; path = Eric_BSDF/MicrosurfaceHeight.h; sourceTree = "<group>"; };
+		C361009E1DCC9C2500ED6D67 /* MicrosurfaceSlope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MicrosurfaceSlope.h; path = Eric_BSDF/MicrosurfaceSlope.h; sourceTree = "<group>"; };
+		C361009F1DCC9C2500ED6D67 /* EricBSDF_BasicFunctions.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = EricBSDF_BasicFunctions.c; path = Eric_BSDF/EricBSDF_BasicFunctions.c; sourceTree = "<group>"; };
+		C36100A01DCC9C2500ED6D67 /* BasicFunctionCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BasicFunctionCollection.m; path = Eric_BSDF/BasicFunctionCollection.m; sourceTree = "<group>"; };
+		C36100A11DCC9C2500ED6D67 /* FresnelFunctionCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FresnelFunctionCollection.m; path = Eric_BSDF/FresnelFunctionCollection.m; sourceTree = "<group>"; };
+		C36100A21DCC9C2500ED6D67 /* Microsurface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Microsurface.m; path = Eric_BSDF/Microsurface.m; sourceTree = "<group>"; };
+		C36100A31DCC9C2500ED6D67 /* MicrosurfaceHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MicrosurfaceHeight.m; path = Eric_BSDF/MicrosurfaceHeight.m; sourceTree = "<group>"; };
+		C36100A41DCC9C2500ED6D67 /* MicrosurfaceSlope.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MicrosurfaceSlope.m; path = Eric_BSDF/MicrosurfaceSlope.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
-		36D143B965754583A8D379B0 /* eric_bsdf */ = {
-			isa = PBXGroup;
-			children = (
-				7B69FA9F60CF455C847B57B1 /* eric_bsdf.m */,
-				3E61B53ACBB54ACD8C6CC43D /* CMakeLists.txt */,
-			);
-			name = eric_bsdf;
-			sourceTree = "<group>";
-		};
-		41A6318C29834F27BDD5F77C /* Sources */ = {
-			isa = PBXGroup;
-			children = (
-				C37BE1BA1DC7466300A3BC1E /* Eric_BSDF */,
-				36D143B965754583A8D379B0 /* eric_bsdf */,
-				8077356A1CEA49B0AEF7C8A8 /* ALL_BUILD */,
-				934529B56EB6489E9926A684 /* ZERO_CHECK */,
-			);
-			name = Sources;
-			sourceTree = "<group>";
-		};
-		498AA1161D03483F9ED981F3 /* CMake Rules */ = {
+		2C86DCF06021433A964D1E18 /* CMake Rules */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = "CMake Rules";
 			sourceTree = "<group>";
 		};
-		60E43D3D336747A382FCD322 /* Resources */ = {
+		58D830CF44FA4AD8A4CE32ED /* eric_bsdf */ = {
+			isa = PBXGroup;
+			children = (
+				648E7CBE4B0F466E824411DC /* CMakeLists.txt */,
+				3EDEDCFC74A74B7D905CBC4C /* eric_bsdf.m */,
+			);
+			name = eric_bsdf;
+			sourceTree = "<group>";
+		};
+		798952238C894DCEAFCA678E /* ALL_BUILD */ = {
+			isa = PBXGroup;
+			children = (
+				DB698313041E47D7A62A9C33 /* CMake Rules */,
+				84DBF1CBD811446A973C9DE1 /* CMakeLists.txt */,
+			);
+			name = ALL_BUILD;
+			sourceTree = "<group>";
+		};
+		823AA267F587449B86F8A0C4 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				C36100981DCC9C1100ED6D67 /* Eric_BSDF */,
+				58D830CF44FA4AD8A4CE32ED /* eric_bsdf */,
+				798952238C894DCEAFCA678E /* ALL_BUILD */,
+				E36D9B03E86248659032E4E6 /* ZERO_CHECK */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+		875C5682C2D7444882461431 = {
+			isa = PBXGroup;
+			children = (
+				823AA267F587449B86F8A0C4 /* Sources */,
+				E61C22365A4640BD97B7E405 /* Resources */,
+				B5C804818B0147868630FAB9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B5C804818B0147868630FAB9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				13A42CF2337145C49B2C22F1 /* eric_bsdf */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C36100981DCC9C1100ED6D67 /* Eric_BSDF */ = {
+			isa = PBXGroup;
+			children = (
+				C36100991DCC9C2500ED6D67 /* BasicFunctionCollection.h */,
+				C36100A01DCC9C2500ED6D67 /* BasicFunctionCollection.m */,
+				C361009A1DCC9C2500ED6D67 /* EricBSDF_BasicFunctions.h */,
+				C361009F1DCC9C2500ED6D67 /* EricBSDF_BasicFunctions.c */,
+				C361009B1DCC9C2500ED6D67 /* FresnelFunctionCollection.h */,
+				C36100A11DCC9C2500ED6D67 /* FresnelFunctionCollection.m */,
+				C361009D1DCC9C2500ED6D67 /* MicrosurfaceHeight.h */,
+				C36100A31DCC9C2500ED6D67 /* MicrosurfaceHeight.m */,
+				C361009E1DCC9C2500ED6D67 /* MicrosurfaceSlope.h */,
+				C36100A41DCC9C2500ED6D67 /* MicrosurfaceSlope.m */,
+				C361009C1DCC9C2500ED6D67 /* Microsurface.h */,
+				C36100A21DCC9C2500ED6D67 /* Microsurface.m */,
+			);
+			name = Eric_BSDF;
+			sourceTree = "<group>";
+		};
+		DB698313041E47D7A62A9C33 /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		E36D9B03E86248659032E4E6 /* ZERO_CHECK */ = {
+			isa = PBXGroup;
+			children = (
+				2C86DCF06021433A964D1E18 /* CMake Rules */,
+				B30697F1BBBC4E13BEAD0014 /* CMakeLists.txt */,
+			);
+			name = ZERO_CHECK;
+			sourceTree = "<group>";
+		};
+		E61C22365A4640BD97B7E405 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		635B214D99774649A26F0BD7 /* CMake Rules */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "CMake Rules";
-			sourceTree = "<group>";
-		};
-		7B86057E61BC43D6B108731D = {
-			isa = PBXGroup;
-			children = (
-				41A6318C29834F27BDD5F77C /* Sources */,
-				60E43D3D336747A382FCD322 /* Resources */,
-				C355FD740EBC4B3ABD7B3450 /* Products */,
-			);
-			sourceTree = "<group>";
-		};
-		8077356A1CEA49B0AEF7C8A8 /* ALL_BUILD */ = {
-			isa = PBXGroup;
-			children = (
-				498AA1161D03483F9ED981F3 /* CMake Rules */,
-				3B5C485DBE284D7BA33A2EF5 /* CMakeLists.txt */,
-			);
-			name = ALL_BUILD;
-			sourceTree = "<group>";
-		};
-		934529B56EB6489E9926A684 /* ZERO_CHECK */ = {
-			isa = PBXGroup;
-			children = (
-				635B214D99774649A26F0BD7 /* CMake Rules */,
-				9D7E764910CD4B3D9D66B825 /* CMakeLists.txt */,
-			);
-			name = ZERO_CHECK;
-			sourceTree = "<group>";
-		};
-		C355FD740EBC4B3ABD7B3450 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				788EB14E05F645468BBC96BC /* eric_bsdf */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		C37BE1BA1DC7466300A3BC1E /* Eric_BSDF */ = {
-			isa = PBXGroup;
-			children = (
-				C30218391DC8D5FC0003598A /* BasicFunctionCollection.h */,
-				C302183A1DC8D5FC0003598A /* BasicFunctionCollection.m */,
-				C30218371DC8D4FC0003598A /* FresnelFunctionCollection.h */,
-				C30218381DC8D4FC0003598A /* FresnelFunctionCollection.m */,
-				C37BE1BB1DC7467800A3BC1E /* EricBSDF_BasicFunctions.h */,
-				C37BE1C21DC75ABA00A3BC1E /* EricBSDF_BasicFunctions.c */,
-				C37BE1BC1DC7467800A3BC1E /* MicrosurfaceHeight.h */,
-				C37BE1BE1DC7467800A3BC1E /* MicrosurfaceHeight.m */,
-				C37BE1BD1DC7467800A3BC1E /* MicrosurfaceSlope.h */,
-				C37BE1BF1DC7467800A3BC1E /* MicrosurfaceSlope.m */,
-				C3EB9D2B1DC7818400A2C51D /* Microsurface.h */,
-				C3EB9D2C1DC7818400A2C51D /* Microsurface.m */,
-			);
-			name = Eric_BSDF;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		92693C50AFC24CFD83FA76EA /* eric_bsdf */ = {
+		2679D25460EF4B5B9771EAE6 /* eric_bsdf */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6CBB852B090A4A4E9120C718 /* Build configuration list for PBXNativeTarget "eric_bsdf" */;
+			buildConfigurationList = E36C3B0DDC8B4ECEBD7CB084 /* Build configuration list for PBXNativeTarget "eric_bsdf" */;
 			buildPhases = (
-				267147FEDFC24B95B4C63107 /* Sources */,
+				BE925DCF4A1B4C5FA3C6D2AE /* Sources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				615A6E042E1542DFA4A3DD37 /* PBXTargetDependency */,
+				51ED56599B014E108AB83038 /* PBXTargetDependency */,
 			);
 			name = eric_bsdf;
 			productName = eric_bsdf;
-			productReference = 788EB14E05F645468BBC96BC /* eric_bsdf */;
+			productReference = 13A42CF2337145C49B2C22F1 /* eric_bsdf */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		C1DA77088CAB47A6B550C015 /* Project object */ = {
+		E15E578E08C24E05B82C5B7F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0810;
 			};
-			buildConfigurationList = 2FB5F320CFFE4C0D829F016D /* Build configuration list for PBXProject "eric_bsdf" */;
+			buildConfigurationList = 73FBDD87FC1845A6BCF07729 /* Build configuration list for PBXProject "eric_bsdf" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 7B86057E61BC43D6B108731D;
+			mainGroup = 875C5682C2D7444882461431;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B3174335B4394876AA27C761 /* ALL_BUILD */,
-				603CDCD9261C4181AD95BF4C /* ZERO_CHECK */,
-				92693C50AFC24CFD83FA76EA /* eric_bsdf */,
-				1F73B956F6DC47DDBD5B8447 /* install */,
+				DF245BE8A7FA4A1EB01E52D8 /* ALL_BUILD */,
+				D7584A3166B84410A54C37A5 /* ZERO_CHECK */,
+				2679D25460EF4B5B9771EAE6 /* eric_bsdf */,
+				B1A73D68D3D044849A368967 /* install */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4632095F70E446639A38ABCB /* CMake Rules */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			name = "CMake Rules";
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "make -C /Users/administrator/Desktop/eric_bsdf -f /Users/administrator/Desktop/eric_bsdf/CMakeScripts/ZERO_CHECK_cmakeRulesBuildPhase.make$CONFIGURATION all";
-			showEnvVarsInLog = 0;
-		};
-		857321C320AD4033A5B7728D /* CMake Rules */ = {
+		3669213181DF414C9A5FC894 /* CMake Rules */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -272,7 +261,18 @@
 			shellScript = "make -C /Users/administrator/Desktop/eric_bsdf -f /Users/administrator/Desktop/eric_bsdf/CMakeScripts/ALL_BUILD_cmakeRulesBuildPhase.make$CONFIGURATION all";
 			showEnvVarsInLog = 0;
 		};
-		9A21457ED08747A898DE3FD2 /* CMake PostBuild Rules */ = {
+		4CB25DA5D09C44988E495226 /* CMake Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/administrator/Desktop/eric_bsdf -f /Users/administrator/Desktop/eric_bsdf/CMakeScripts/ZERO_CHECK_cmakeRulesBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+		F6F18174D94C43099AD87E43 /* CMake PostBuild Rules */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -286,56 +286,139 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		267147FEDFC24B95B4C63107 /* Sources */ = {
+		BE925DCF4A1B4C5FA3C6D2AE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C37BE1C31DC75ABA00A3BC1E /* EricBSDF_BasicFunctions.c in Sources */,
-				C302183C1DC8D6030003598A /* FresnelFunctionCollection.m in Sources */,
-				C3EB9D2D1DC7818400A2C51D /* Microsurface.m in Sources */,
-				C37BE1C01DC7536100A3BC1E /* MicrosurfaceSlope.m in Sources */,
-				3ED9B8CD299748F3A3195D59 /* eric_bsdf.m in Sources */,
-				C302183B1DC8D6000003598A /* BasicFunctionCollection.m in Sources */,
-				C37BE1C41DC75BB200A3BC1E /* MicrosurfaceHeight.m in Sources */,
+				C36100A51DCC9C4600ED6D67 /* EricBSDF_BasicFunctions.c in Sources */,
+				C36100AA1DCC9C5300ED6D67 /* MicrosurfaceSlope.m in Sources */,
+				C36100A91DCC9C5100ED6D67 /* MicrosurfaceHeight.m in Sources */,
+				C36100A81DCC9C4E00ED6D67 /* Microsurface.m in Sources */,
+				C36100A61DCC9C4900ED6D67 /* BasicFunctionCollection.m in Sources */,
+				9B190E18BD4E45989DA98C8E /* eric_bsdf.m in Sources */,
+				C36100A71DCC9C4C00ED6D67 /* FresnelFunctionCollection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		615A6E042E1542DFA4A3DD37 /* PBXTargetDependency */ = {
+		0AFEC7075960407393B80D09 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 603CDCD9261C4181AD95BF4C /* ZERO_CHECK */;
-			targetProxy = 90122CE53AD944E1B94934CD /* PBXContainerItemProxy */;
+			target = 2679D25460EF4B5B9771EAE6 /* eric_bsdf */;
+			targetProxy = 856E6E5632C646E5AF6B7921 /* PBXContainerItemProxy */;
 		};
-		BD4A1F18A8314F3A9E059918 /* PBXTargetDependency */ = {
+		2C2CC730D64648928A2AD069 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 603CDCD9261C4181AD95BF4C /* ZERO_CHECK */;
-			targetProxy = BB0ED50ECBF84F31AB37F2E0 /* PBXContainerItemProxy */;
+			target = DF245BE8A7FA4A1EB01E52D8 /* ALL_BUILD */;
+			targetProxy = 7041C90EFDD34C42BF1BF71B /* PBXContainerItemProxy */;
 		};
-		DC95C509C88A4883870BC01C /* PBXTargetDependency */ = {
+		51ED56599B014E108AB83038 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 92693C50AFC24CFD83FA76EA /* eric_bsdf */;
-			targetProxy = 0AB98F1667934AFAA97508B9 /* PBXContainerItemProxy */;
+			target = D7584A3166B84410A54C37A5 /* ZERO_CHECK */;
+			targetProxy = 8027CF73A81D4F53930607C6 /* PBXContainerItemProxy */;
 		};
-		EBD5D65835264886B68DF7F5 /* PBXTargetDependency */ = {
+		A898A733B7B449518C02DE15 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B3174335B4394876AA27C761 /* ALL_BUILD */;
-			targetProxy = 5AEA5F5737BB46CCB04BF28C /* PBXContainerItemProxy */;
+			target = D7584A3166B84410A54C37A5 /* ZERO_CHECK */;
+			targetProxy = C368C33741C74770951ABF00 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		05E13B6EA70B45C1B9225DE3 /* MinSizeRel */ = {
+		012329079CC242B992CE24C6 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/Library/ART_Resources/arm2art/include,
+					/Library/ART_Resources/arm2art/include,
+					/Users/administrator/Library/ART_Resources/arm2art/include,
+					/usr/local/include,
+				);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/administrator/Desktop/eric_bsdf;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = RelWithDebInfo;
+		};
+		202F8D9957684D0EB55BABA8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk;
 				SYMROOT = /Users/administrator/Desktop/eric_bsdf/build;
 			};
-			name = MinSizeRel;
+			name = Debug;
 		};
-		149EA27006084553B393C47C /* RelWithDebInfo */ = {
+		3C2DF1C878374D748F44D6B2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				FRAMEWORK_SEARCH_PATHS = /Users/administrator/Library/Frameworks;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/Library/ART_Resources/arm2art/include,
+					/Library/ART_Resources/arm2art/include,
+					/Users/administrator/Library/ART_Resources/arm2art/include,
+					/usr/local/include,
+				);
+				INSTALL_PATH = "";
+				LD_RUNPATH_SEARCH_PATHS = /Users/administrator/Library/Frameworks;
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = (
+					"-D_GNU_SOURCE",
+					"-DART_4_OPENSTEP",
+					"-std=gnu99",
+					"-Wno-unused",
+					"-D_ART_WITHOUT_JPEGLIB_",
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					"-framework",
+					AdvancedRenderingToolkit,
+					"-framework",
+					Cocoa,
+					/usr/local/lib/libtiff.dylib,
+					/usr/local/lib/liblcms2.dylib,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = eric_bsdf;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/administrator/Desktop/eric_bsdf;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = Debug;
+		};
+		56D848FA87B84BF3A6E6C154 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -364,9 +447,9 @@
 					"$(inherited)",
 				);
 			};
-			name = RelWithDebInfo;
+			name = Release;
 		};
-		162170222E2B4E5D894B8281 /* Debug */ = {
+		6C7E9D0F7F5648AABC09C112 /* RelWithDebInfo */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -395,9 +478,49 @@
 					"$(inherited)",
 				);
 			};
+			name = RelWithDebInfo;
+		};
+		6D0C0159334E4FBBBFDB08EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk;
+				SYMROOT = /Users/administrator/Desktop/eric_bsdf/build;
+			};
+			name = Release;
+		};
+		7789B562A38D4C429816E7E9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/Library/ART_Resources/arm2art/include,
+					/Library/ART_Resources/arm2art/include,
+					/Users/administrator/Library/ART_Resources/arm2art/include,
+					/usr/local/include,
+				);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = install;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/administrator/Desktop/eric_bsdf;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
 			name = Debug;
 		};
-		3B90357CAAFE435FA001E1CB /* Release */ = {
+		7A15467F1CE84769AF21A7CB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -450,7 +573,7 @@
 			};
 			name = Release;
 		};
-		4259F813FAEB497491A68043 /* RelWithDebInfo */ = {
+		7D2D8B69E8C940E080E3EB29 /* MinSizeRel */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -468,38 +591,7 @@
 				INSTALL_PATH = "";
 				OTHER_LDFLAGS = " ";
 				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ZERO_CHECK;
-				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/administrator/Desktop/eric_bsdf;
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-					"$(inherited)",
-				);
-			};
-			name = RelWithDebInfo;
-		};
-		4AFAA5A065434497BFC2688C /* MinSizeRel */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (
-					/usr/local/Library/ART_Resources/arm2art/include,
-					/Library/ART_Resources/arm2art/include,
-					/Users/administrator/Library/ART_Resources/arm2art/include,
-					/usr/local/include,
-				);
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ZERO_CHECK;
+				PRODUCT_NAME = ALL_BUILD;
 				SECTORDER_FLAGS = "";
 				SYMROOT = /Users/administrator/Desktop/eric_bsdf;
 				USE_HEADERMAP = NO;
@@ -512,170 +604,7 @@
 			};
 			name = MinSizeRel;
 		};
-		5A2ED873AE4141759BDB083D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk;
-				SYMROOT = /Users/administrator/Desktop/eric_bsdf/build;
-			};
-			name = Release;
-		};
-		6CA48967AD0540B894831D3F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk;
-				SYMROOT = /Users/administrator/Desktop/eric_bsdf/build;
-			};
-			name = Debug;
-		};
-		75AEA51DFD374544829F1263 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (
-					/usr/local/Library/ART_Resources/arm2art/include,
-					/Library/ART_Resources/arm2art/include,
-					/Users/administrator/Library/ART_Resources/arm2art/include,
-					/usr/local/include,
-				);
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ALL_BUILD;
-				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/administrator/Desktop/eric_bsdf;
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-					"$(inherited)",
-				);
-			};
-			name = Release;
-		};
-		75B43AC258D342BC96F3AA17 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (
-					/usr/local/Library/ART_Resources/arm2art/include,
-					/Library/ART_Resources/arm2art/include,
-					/Users/administrator/Library/ART_Resources/arm2art/include,
-					/usr/local/include,
-				);
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ALL_BUILD;
-				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/administrator/Desktop/eric_bsdf;
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-					"$(inherited)",
-				);
-			};
-			name = Debug;
-		};
-		79829384CF93464FB62FA487 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				EXECUTABLE_PREFIX = "";
-				EXECUTABLE_SUFFIX = "";
-				FRAMEWORK_SEARCH_PATHS = /Users/administrator/Library/Frameworks;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (
-					/usr/local/Library/ART_Resources/arm2art/include,
-					/Library/ART_Resources/arm2art/include,
-					/Users/administrator/Library/ART_Resources/arm2art/include,
-					/usr/local/include,
-				);
-				INSTALL_PATH = "";
-				LD_RUNPATH_SEARCH_PATHS = /Users/administrator/Library/Frameworks;
-				LIBRARY_SEARCH_PATHS = "";
-				OTHER_CFLAGS = (
-					"-D_GNU_SOURCE",
-					"-DART_4_OPENSTEP",
-					"-std=gnu99",
-					"-Wno-unused",
-					"-D_ART_WITHOUT_JPEGLIB_",
-				);
-				OTHER_LDFLAGS = (
-					"-Wl,-search_paths_first",
-					"-Wl,-headerpad_max_install_names",
-					"-framework",
-					AdvancedRenderingToolkit,
-					"-framework",
-					Cocoa,
-					/usr/local/lib/libtiff.dylib,
-					/usr/local/lib/liblcms2.dylib,
-				);
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = eric_bsdf;
-				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/administrator/Desktop/eric_bsdf;
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-					"$(inherited)",
-				);
-			};
-			name = Debug;
-		};
-		7C67E594053B419D9B76EC79 /* RelWithDebInfo */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (
-					/usr/local/Library/ART_Resources/arm2art/include,
-					/Library/ART_Resources/arm2art/include,
-					/Users/administrator/Library/ART_Resources/arm2art/include,
-					/usr/local/include,
-				);
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ALL_BUILD;
-				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/administrator/Desktop/eric_bsdf;
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-					"$(inherited)",
-				);
-			};
-			name = RelWithDebInfo;
-		};
-		7E911286A96643E7B05515B6 /* RelWithDebInfo */ = {
+		A4366AB718F94D83AA8BC317 /* RelWithDebInfo */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -728,16 +657,69 @@
 			};
 			name = RelWithDebInfo;
 		};
-		A15C730985BE41FBBE700C57 /* RelWithDebInfo */ = {
+		B001B1F47AD34E05A2E76BB1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk;
-				SYMROOT = /Users/administrator/Desktop/eric_bsdf/build;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/Library/ART_Resources/arm2art/include,
+					/Library/ART_Resources/arm2art/include,
+					/Users/administrator/Library/ART_Resources/arm2art/include,
+					/usr/local/include,
+				);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/administrator/Desktop/eric_bsdf;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
 			};
-			name = RelWithDebInfo;
+			name = Debug;
 		};
-		ACF6314D7B68437FB2798D98 /* Release */ = {
+		BBB03172A5E04AE09C94D372 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/Library/ART_Resources/arm2art/include,
+					/Library/ART_Resources/arm2art/include,
+					/Users/administrator/Library/ART_Resources/arm2art/include,
+					/usr/local/include,
+				);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/administrator/Desktop/eric_bsdf;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = Debug;
+		};
+		BFB32A3F25B241BB9738A75C /* MinSizeRel */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -766,9 +748,111 @@
 					"$(inherited)",
 				);
 			};
+			name = MinSizeRel;
+		};
+		C60E6EBE7BBC482E8C0C710E /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/Library/ART_Resources/arm2art/include,
+					/Library/ART_Resources/arm2art/include,
+					/Users/administrator/Library/ART_Resources/arm2art/include,
+					/usr/local/include,
+				);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = install;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/administrator/Desktop/eric_bsdf;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = RelWithDebInfo;
+		};
+		CA7900384AB14C658DD9D8F3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/Library/ART_Resources/arm2art/include,
+					/Library/ART_Resources/arm2art/include,
+					/Users/administrator/Library/ART_Resources/arm2art/include,
+					/usr/local/include,
+				);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/administrator/Desktop/eric_bsdf;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
 			name = Release;
 		};
-		C13460C387544FAB8BCD9EEC /* MinSizeRel */ = {
+		CA8F4080F430408D9047AE47 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk;
+				SYMROOT = /Users/administrator/Desktop/eric_bsdf/build;
+			};
+			name = MinSizeRel;
+		};
+		ED69B12E3CE84DEF9F5B2A56 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/Library/ART_Resources/arm2art/include,
+					/Library/ART_Resources/arm2art/include,
+					/Users/administrator/Library/ART_Resources/arm2art/include,
+					/usr/local/include,
+				);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/administrator/Desktop/eric_bsdf;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = MinSizeRel;
+		};
+		F438FCF7A9934C7EBDE34DD0 /* MinSizeRel */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -821,100 +905,7 @@
 			};
 			name = MinSizeRel;
 		};
-		CAB205243D504EAE8748011D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (
-					/usr/local/Library/ART_Resources/arm2art/include,
-					/Library/ART_Resources/arm2art/include,
-					/Users/administrator/Library/ART_Resources/arm2art/include,
-					/usr/local/include,
-				);
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ZERO_CHECK;
-				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/administrator/Desktop/eric_bsdf;
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-					"$(inherited)",
-				);
-			};
-			name = Release;
-		};
-		D17DF4FA63EF4EEB854EF420 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (
-					/usr/local/Library/ART_Resources/arm2art/include,
-					/Library/ART_Resources/arm2art/include,
-					/Users/administrator/Library/ART_Resources/arm2art/include,
-					/usr/local/include,
-				);
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = install;
-				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/administrator/Desktop/eric_bsdf;
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-					"$(inherited)",
-				);
-			};
-			name = Debug;
-		};
-		DF7338ABB41D4AE9AEA65570 /* MinSizeRel */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (
-					/usr/local/Library/ART_Resources/arm2art/include,
-					/Library/ART_Resources/arm2art/include,
-					/Users/administrator/Library/ART_Resources/arm2art/include,
-					/usr/local/include,
-				);
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = install;
-				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/administrator/Desktop/eric_bsdf;
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-					"$(inherited)",
-				);
-			};
-			name = MinSizeRel;
-		};
-		EAF765F26AE745DBA259BC35 /* MinSizeRel */ = {
+		FBBFBF2BC9114CBA910B6874 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -943,67 +934,76 @@
 					"$(inherited)",
 				);
 			};
-			name = MinSizeRel;
+			name = Release;
+		};
+		FC8877EE553D422E8C34577A /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk;
+				SYMROOT = /Users/administrator/Desktop/eric_bsdf/build;
+			};
+			name = RelWithDebInfo;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2FB5F320CFFE4C0D829F016D /* Build configuration list for PBXProject "eric_bsdf" */ = {
+		73FBDD87FC1845A6BCF07729 /* Build configuration list for PBXProject "eric_bsdf" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6CA48967AD0540B894831D3F /* Debug */,
-				5A2ED873AE4141759BDB083D /* Release */,
-				05E13B6EA70B45C1B9225DE3 /* MinSizeRel */,
-				A15C730985BE41FBBE700C57 /* RelWithDebInfo */,
+				202F8D9957684D0EB55BABA8 /* Debug */,
+				6D0C0159334E4FBBBFDB08EC /* Release */,
+				CA8F4080F430408D9047AE47 /* MinSizeRel */,
+				FC8877EE553D422E8C34577A /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		6CBB852B090A4A4E9120C718 /* Build configuration list for PBXNativeTarget "eric_bsdf" */ = {
+		E36C3B0DDC8B4ECEBD7CB084 /* Build configuration list for PBXNativeTarget "eric_bsdf" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				79829384CF93464FB62FA487 /* Debug */,
-				3B90357CAAFE435FA001E1CB /* Release */,
-				C13460C387544FAB8BCD9EEC /* MinSizeRel */,
-				7E911286A96643E7B05515B6 /* RelWithDebInfo */,
+				3C2DF1C878374D748F44D6B2 /* Debug */,
+				7A15467F1CE84769AF21A7CB /* Release */,
+				F438FCF7A9934C7EBDE34DD0 /* MinSizeRel */,
+				A4366AB718F94D83AA8BC317 /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		86660E40A19C4B7BBAA9DBE1 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
+		E472CE93676D4390996B043B /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				75B43AC258D342BC96F3AA17 /* Debug */,
-				75AEA51DFD374544829F1263 /* Release */,
-				EAF765F26AE745DBA259BC35 /* MinSizeRel */,
-				7C67E594053B419D9B76EC79 /* RelWithDebInfo */,
+				B001B1F47AD34E05A2E76BB1 /* Debug */,
+				CA7900384AB14C658DD9D8F3 /* Release */,
+				ED69B12E3CE84DEF9F5B2A56 /* MinSizeRel */,
+				6C7E9D0F7F5648AABC09C112 /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		881BC4FFBBB548FBBE916B3A /* Build configuration list for PBXAggregateTarget "install" */ = {
+		EF259E49C2B0408BB2851420 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D17DF4FA63EF4EEB854EF420 /* Debug */,
-				ACF6314D7B68437FB2798D98 /* Release */,
-				DF7338ABB41D4AE9AEA65570 /* MinSizeRel */,
-				149EA27006084553B393C47C /* RelWithDebInfo */,
+				BBB03172A5E04AE09C94D372 /* Debug */,
+				FBBFBF2BC9114CBA910B6874 /* Release */,
+				7D2D8B69E8C940E080E3EB29 /* MinSizeRel */,
+				012329079CC242B992CE24C6 /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		B62FF8C1ABF14617B48652A2 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
+		FB2C6DE28B2642089D254534 /* Build configuration list for PBXAggregateTarget "install" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				162170222E2B4E5D894B8281 /* Debug */,
-				CAB205243D504EAE8748011D /* Release */,
-				4AFAA5A065434497BFC2688C /* MinSizeRel */,
-				4259F813FAEB497491A68043 /* RelWithDebInfo */,
+				7789B562A38D4C429816E7E9 /* Debug */,
+				56D848FA87B84BF3A6E6C154 /* Release */,
+				BFB32A3F25B241BB9738A75C /* MinSizeRel */,
+				C60E6EBE7BBC482E8C0C710E /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = C1DA77088CAB47A6B550C015 /* Project object */;
+	rootObject = E15E578E08C24E05B82C5B7F /* Project object */;
 }

@@ -19,6 +19,8 @@
     
 	// slope distribution
 	MicrosurfaceSlope   * m_microsurfaceslope;
+    
+    ArcObject<ArpRandomGenerator> * randomGenerator;
 }
 
 -(id) init
@@ -215,11 +217,10 @@
     : (const Vec3D *) wi_art
     ;
 
--(float) samplePhaseFunction
+-(Vec3D) samplePhaseFunction
     : (const Vec3D *) wi_art
-    : (const Vec3D *) wo_art
     : (const BOOL   ) wi_outside
-    : (const BOOL   ) wo_outside
+    : (      BOOL  *) wo_outside
     ;
 
 // evaluate BSDF limited to single scattering 

@@ -8,10 +8,8 @@
 
 #include "EricBSDF_BasicFunctions.h"
 
-double generateRandomNumber()
-{
-    return 0;
-}
+
+#define FLT_MAX 3.402823466e+38F 
 
 double eric_erf(double x)
 {
@@ -101,16 +99,14 @@ double  eric_beta (double m, double n)
 double sign(double x)
 {
     if(x>0)
-    return 1;
+        return 1;
     else
-    return -1;
+        return -1;
 }
 
 int IsFiniteNumber(double x)
 {
-    if( x < INFINITY)
-        return 1;
-    else return 0;
+    return (x <= FLT_MAX && x >= -FLT_MAX);
 }
 
 
