@@ -10,6 +10,8 @@
 #import "MicrosurfaceSlope.h"
 #import "MicrosurfaceHeight.h"
 
+
+// in this code, incident light should always points away from surface
 @interface Microsurface : ArcObject
 {
 @public
@@ -178,6 +180,13 @@
     : (const Vec3D *) wm
     : (const float)   eta
     ;
+
+-(Vec3D) refract
+    : (const Vec3D *) wi
+    : (const Vec3D *) wm
+    : (const float)   eta
+    ;
+
     
     // evaluate BSDF with a random walk (stochastic but unbiased)
 	// scatteringOrder=0 --> contribution from all scattering events

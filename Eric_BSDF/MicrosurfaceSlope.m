@@ -49,19 +49,17 @@
 -(float) D
     : (const Vec3D *) wm_art
 {
-    double wmz = VEC3D_I(*wm_art, 2);
-    double wmy = VEC3D_I(*wm_art, 1);
-    double wmx = VEC3D_I(*wm_art, 0);
+    struct vec3 wm = Vec3D_to_vec3(wm_art);
     
-    if( wmz <= 0.0f)
+    if( wm.z <= 0.0f)
 		return 0.0f;
 
 	// slope of wm
-	const float slope_x = -wmx/wmz;
-	const float slope_y = -wmy/wmz;
+	const float slope_x = -wm.x/wm.z;
+	const float slope_y = -wm.y/wm.z;
 
 	// value
-	const float value = [self P22 :slope_x :slope_y] / (wmz*wmz*wmz*wmz);
+	const float value = [self P22 :slope_x :slope_y] / (wm.z*wm.z*wm.z*wm.z);
 	return value;
 }
 
@@ -70,9 +68,9 @@
     : (const Vec3D *) wi_art
     : (const Vec3D *) wm_art
 {
-    double wmz = VEC3D_I(*wm_art, 2);
+    struct vec3 wm = Vec3D_to_vec3(wm_art);
     
-    if( wmz <= 0.0f)
+    if( wm.z <= 0.0f)
 		return 0.0f;
 
 	// normalization coefficient

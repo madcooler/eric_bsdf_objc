@@ -79,14 +79,14 @@
 
 	float sum = 0;
 	
+    Vec3D wr_art = vec3_to_Vec3D( wr );
+    
 	// random walk
 	int current_scatteringOrder = 0;	
 	while(scatteringOrder==0 || current_scatteringOrder <= scatteringOrder)
 	{
 		// next height
 		float U = [ self generateRandomNumber ];
-        
-        Vec3D wr_art = vec3_to_Vec3D( wr );
         
 		hr = [self sampleHeight: & wr_art: hr : U];
 
@@ -98,7 +98,9 @@
 
 		// next event estimation
         
-        Vec3D neg_wr_art = vec3_to_Vec3D(negtive(wr));
+        Vec3D neg_wr_art = wr_art;
+        vec3d_negate_v(&neg_wr_art);
+        
 		float phasefunction = [self evalPhaseFunction
                                 : & neg_wr_art
                                 :   wo_art
@@ -112,9 +114,9 @@
 		
 		// next direction
         
-        Vec3D next_dir = [self samplePhaseFunction: & neg_wr_art];
+        Vec3D wr_art = [self samplePhaseFunction: & neg_wr_art];
         
-		wr = Vec3D_to_vec3(& next_dir);
+		wr = Vec3D_to_vec3(& wr_art);
 			
 		// if NaN (should not happen, just in case)
 		if( (hr != hr) || (wr.z != wr.z) ) 
@@ -134,6 +136,8 @@
 	struct vec3 wr = negtive(wi) ;
 	float hr = 1.0f + [ m_microsurfaceheight invC1: 0.999f];
 	
+    Vec3D wr_art = vec3_to_Vec3D( wr );
+    
 	// random walk
 	scatteringOrder = 0;	
 	while(true)
@@ -141,7 +145,7 @@
 		// next height
 		float U = [ self generateRandomNumber ];
         
-        Vec3D wr_art = vec3_to_Vec3D( wr );
+        
 		hr = [self sampleHeight: & wr_art: hr : U];
 		
 
@@ -154,17 +158,17 @@
 		// next direction
 		//wr = samplePhaseFunction(-wr);
         
-        Vec3D neg_wr_art = vec3_to_Vec3D(negtive(wr));
-        Vec3D next_dir = [self samplePhaseFunction: & neg_wr_art];
-		wr = Vec3D_to_vec3(& next_dir);
-
+        Vec3D neg_wr_art = wr_art;
+        vec3d_negate_v(&neg_wr_art);
+        wr_art = [self samplePhaseFunction: & neg_wr_art];
+        wr = Vec3D_to_vec3(&wr_art);
 
 		// if NaN (should not happen, just in case)
 		if( (hr != hr) || (wr.z != wr.z) ) 
 			return VEC3D(0, 0, 1) ;
 	}
 
-	return vec3_to_Vec3D(wr);
+	return wr_art;
 }
 
 -(Vec3D) sample
@@ -177,9 +181,6 @@
 -(float) G_1
     : (const Vec3D *) wi_art
 {
-    CORRECT_INCIDENTLIGHT_POINTS_UPWARD(wi_art)
-    
-    
     struct vec3 wi = Vec3D_to_vec3(wi_art);
     
     if(wi.z > 0.9999f)
@@ -218,34 +219,34 @@
 
 // sample height in outgoing direction
 -(float) sampleHeight
-    : (const Vec3D *) wo_art
-    : (const float  ) h0
+    : (const Vec3D *) wr_art
+    : (const float  ) hr
     : (const float  ) U
 {
-    struct vec3 wo = Vec3D_to_vec3(wo_art);
+    struct vec3 wr = Vec3D_to_vec3(wr_art);
     
-    if(wo.z > 0.9999f)
+    if(wr.z > 0.9999f)
 		return FLT_MAX;
-	if(wo.z < -0.9999f)
+	if(wr.z < -0.9999f)
 	{
 		const float value = [ m_microsurfaceheight invC1
-                : ( U * [m_microsurfaceheight C1: (h0)] )];
+                : ( U * [m_microsurfaceheight C1: (hr)] )];
 		return value;
 	}
-	if(fabs(wo.z) < 0.0001f)
-		return h0;
+	if(fabs(wr.z) < 0.0001f)
+		return hr;
 
 	// probability of intersection
-	const float G_1_ = [self G_1: wo_art: h0];
+	const float G_1_ = [self G_1: wr_art: hr];
 		
 	if (U > 1.0f - G_1_) // leave the microsurface
 		return FLT_MAX;
 
 	const float h = [m_microsurfaceheight invC1
-                :   [ m_microsurfaceheight C1:(h0)]
+                :   [ m_microsurfaceheight C1:(hr)]
                     / powf(
                             (1.0f - U) ,
-                            1.0f / [m_microsurfaceslope Lambda:(wo_art)]
+                            1.0f / [m_microsurfaceslope Lambda:(wr_art)]
                         )
                 ];
 	return h;
@@ -285,23 +286,14 @@
 {
     struct vec3 wi = Vec3D_to_vec3(wi_art);
     struct vec3 wo = Vec3D_to_vec3(wo_art);
+    struct vec3 wh = vec3_add(wi,wo);
     
-    Vec3D neg_wi_art = *wi_art;
-    Vec3D neg_wo_art = *wo_art;
-    
-    vec3d_negate_v(&neg_wi_art);
-    vec3d_negate_v(&neg_wo_art);
-    
-    Vec3D wh_art;
-    
-    vec3d_vv_add_v( &neg_wi_art, wo_art, & wh_art );
-    vec3d_norm_v( & wh_art );
+    Vec3D wh_art = VEC3D(0,0,0);
+    wh_art = vec3_to_Vec3D(wh);
     
     // half vector 
 	//const vec3 wh = normalize(wi+wo);
-    
-    struct vec3 wh = Vec3D_to_vec3( & wh_art );
-    
+  
 	if(wh.z < 0.0f)
 		return 0.0f;
 	
@@ -333,9 +325,17 @@
     
     // in our implementation, we assume wi points to the surface
     
-    Vec3D wo_art;
+    Vec3D wo_art = VEC3D(0,0,0);
     
-    vec3d_vv_reflect_v( wi_art, & wm_art, & wo_art);
+    Vec3D neg_wi_art = *wi_art;
+    vec3d_negate_v(&neg_wi_art);
+    
+    vec3d_vv_reflect_v(&neg_wi_art,&wm_art,&wo_art);
+    
+//    double factor = 2 * vec3d_vv_dot(wi_art,&wm_art);
+//    Vec3D wm_art_scaled;
+//    vec3d_d_mul_v(factor,&wm_art_scaled);
+//    vec3d_vv_add_v(&neg_wi_art,&wm_art_scaled,wo_art);
     
     
     // in this case, wi DO NOT points to the surface,
@@ -362,9 +362,9 @@
     vec3d_negate_v(&neg_wi_art);
     vec3d_negate_v(&neg_wo_art);
     
-    Vec3D wh_art;
+    Vec3D wh_art = VEC3D(0,0,0);
     
-    vec3d_vv_add_v( &neg_wi_art, wo_art, & wh_art );
+    vec3d_vv_add_v( wi_art, wo_art, & wh_art );
     vec3d_norm_v( & wh_art );
     
     // half vector 
@@ -414,9 +414,6 @@
     : (const Vec3D *) wi_art
     : (const Vec3D *) wo_art
 {
-    struct vec3 wi = Vec3D_to_vec3(wi_art);
-    struct vec3 wo = Vec3D_to_vec3(wo_art);
-    
     const float U1 = [ self generateRandomNumber ];
 	const float U2 = [ self generateRandomNumber ];
     
@@ -477,7 +474,8 @@
 	
     //vec3 wo = x*w1 + y*w2 + z*wm;
     
-    Vec3D w1_art,w2_art;
+    Vec3D w1_art = VEC3D(0,0,0);
+    Vec3D w2_art = VEC3D(0,0,0);
     
     w1_art = vec3_to_Vec3D(w1);
     w2_art = vec3_to_Vec3D(w2);
@@ -586,7 +584,7 @@
 		//hr = (outside) ? sampleHeight(wr, hr, U) : -sampleHeight(-wr, -hr, U);
         
         Vec3D neg_wr_art = wr_art;
-        vec3d_negate_v(&neg_wr_art);
+        vec3d_negate_v( &neg_wr_art );
         
         if(outside)
         {
@@ -626,6 +624,7 @@
 		//wr = samplePhaseFunction(-wr, outside, outside);
         
         wr_art = [self samplePhaseFunction: & neg_wr_art :outside :outside];
+        wr = Vec3D_to_vec3(&wr_art);
         
 		// if NaN (should not happen, just in case)
 		if( (hr != hr) || (wr.z != wr.z) ) 
@@ -683,6 +682,7 @@
 		// next direction
 		//wr = samplePhaseFunction(-wr, outside, outside);
         wr_art = [self samplePhaseFunction: & neg_wr_art :outside :outside];
+        wr = Vec3D_to_vec3(&wr_art);
         
 		// if NaN (should not happen, just in case)
 		if( (hr != hr) || (wr.z != wr.z) ) 
@@ -699,8 +699,8 @@
     : (const Vec3D *) wo_art
 {
 
-    return [self evalPhaseFunction :wi_art : wo_art : true : true ] +
-           [self evalPhaseFunction :wi_art : wo_art : true : false];
+    return [self evalPhaseFunction :wi_art : wo_art : YES : YES ] +
+           [self evalPhaseFunction :wi_art : wo_art : YES : NO];
 }
 
 // evaluate local phase function
@@ -723,10 +723,10 @@
 
 	if( wi_outside == wo_outside ) // reflection
 	{
-        Vec3D wh_art;
+        Vec3D wh_art = VEC3D(0,0,0);
     
-        vec3d_vv_add_v(&neg_wi_art, wo_art, & wh_art );
-        vec3d_norm_v( & wh_art );
+        vec3d_vv_add_v(wi_art, wo_art, & wh_art );
+        vec3d_norm_v( &wh_art );
         
         Vec3D neg_wh_art = wh_art;
         vec3d_negate_v( & neg_wh_art );
@@ -734,9 +734,7 @@
         // half vector
         //const vec3 wh = normalize(wi+wo);
         
-        struct vec3 wh = Vec3D_to_vec3( & wh_art );
-        
-        
+        //struct vec3 wh = Vec3D_to_vec3( & wh_art );
 		
 		// value
 		const float value = (wi_outside) ?
@@ -752,8 +750,9 @@
 	}
 	else // transmission
 	{
-        Vec3D wh_art;
-        vec3d_dv_mul_dv_mul_add_v(1, &neg_wi_art, eta, wo_art, &wh_art);
+        
+        Vec3D wh_art = VEC3D(0,0,0);
+        vec3d_dv_mul_dv_mul_add_v(1, wi_art, eta, wo_art, &wh_art);
         vec3d_negate_v(&wh_art);
         
         if (wi_outside)
@@ -783,7 +782,7 @@
 		}
 		else
 		{
-			value = eta*eta * (1.0f- [self Fresnel : &neg_wi_art :& neg_wh_art: eta])
+			value = eta*eta * (1.0f - [self Fresnel : &neg_wi_art :& neg_wh_art: eta])
                 * [m_microsurfaceslope D_wi : & neg_wi_art : &neg_wh_art]
                 * fmaxf(0.0f, -vec3d_vv_dot(& neg_wo_art,  &neg_wh_art)) *
 				1.0f / powf(vec3d_vv_dot( & neg_wi_art,  &neg_wh_art)
@@ -799,37 +798,31 @@
 -(Vec3D) samplePhaseFunction
     : (const Vec3D *) wi_art
 {
-    struct vec3 wi = Vec3D_to_vec3(wi_art);
-    
     BOOL wo_outside;
-    Vec3D vec_art = [self samplePhaseFunction: wi_art : true : &wo_outside];
+    Vec3D vec_art = [self samplePhaseFunction: wi_art : YES : &wo_outside];
 	return vec_art;
 }
 
 -(Vec3D) samplePhaseFunction
     : (const Vec3D *) wi_art
-    //: (const Vec3D *) wo_art
     : (const BOOL   ) wi_outside
     : (      BOOL  *) wo_outside
 {
     struct vec3 wi = Vec3D_to_vec3(wi_art);
-    //struct vec3 wo = Vec3D_to_vec3(wo_art);
     
     const float U1 = [ self generateRandomNumber ];
 	const float U2 = [ self generateRandomNumber ];
 
 	const float eta = wi_outside ? m_eta : 1.0f / m_eta;
 
-//	vec3 wm = wi_outside ? (m_microsurfaceslope->sampleD_wi(wi, U1, U2)) :
-//						   (-m_microsurfaceslope->sampleD_wi(-wi, U1, U2)) ;
     
     Vec3D neg_wi_art = * wi_art;
     vec3d_negate_v(&neg_wi_art);
     
-    Vec3D wm_art;
+    Vec3D wm_art = VEC3D(0,0,0);
     
     if(wi_outside)
-        wm_art =    [m_microsurfaceslope sampleD_wi
+        wm_art = [m_microsurfaceslope sampleD_wi
                         : wi_art
                         : U1
                         : U2
@@ -849,9 +842,9 @@
 
 	if( [self generateRandomNumber] < F )
 	{
-		Vec3D wo_art;
+		Vec3D wo_art = VEC3D(0,0,0);
     
-        vec3d_vv_reflect_v( wi_art, & wm_art, & wo_art);
+        vec3d_vv_reflect_v( &neg_wi_art, & wm_art, & wo_art);
         
         // in this case, wi DO NOT points to the surface,
         // reflect
@@ -863,10 +856,10 @@
 	{
 		* wo_outside = !wi_outside;
         
-        Vec3D wo_art;
+        Vec3D wo_art = VEC3D(0,0,0);
         
         [BasicFunctionCollection GetSpecularRefractionDirection
-                :   wi_art
+                : & neg_wi_art
                 : & wm_art
                 :   1
                 :   eta
@@ -902,12 +895,12 @@
 	if(wo_outside) // reflection
 	{
 		// D
-        Vec3D wh_art;
-        vec3d_vv_add_v( &neg_wi_art, wo_art, & wh_art );
+        Vec3D wh_art = VEC3D(0,0,0);
+        vec3d_vv_add_v( wi_art, wo_art, & wh_art );
         vec3d_norm_v( & wh_art );
         
 		//const vec3 wh = normalize(vec3(wi+wo));
-		const float D = [m_microsurfaceslope D:&wh_art];
+		const float D = [m_microsurfaceslope D : & wh_art];
 		
 		// masking shadowing
 		const float Lambda_i = [m_microsurfaceslope Lambda:(wi_art)];
@@ -922,16 +915,16 @@
 	else // refraction
 	{
 		// D
-        Vec3D wh_art;
-        vec3d_dv_mul_dv_mul_add_v(1, &neg_wi_art, eta, wo_art, &wh_art);
-        vec3d_norm_v(&wh_art);
-        vec3d_negate_v(&wh_art);
+        Vec3D wh_art = VEC3D(0,0,0);
+        vec3d_dv_mul_dv_mul_add_v( 1, wi_art, eta, wo_art, &wh_art);
+        vec3d_norm_v( & wh_art );
+        vec3d_negate_v( & wh_art );
         
 		//vec3 wh = -normalize(wi+wo*eta);
-		if(eta<1.0f)
-			vec3d_negate_v(&wh_art);
+		if( eta < 1.0f )
+			vec3d_negate_v( & wh_art );
         
-		const float D = [m_microsurfaceslope D:(&wh_art)];
+		const float D = [m_microsurfaceslope D :( & wh_art ) ];
 
 		// G2
 		const float Lambda_i = [m_microsurfaceslope Lambda:(wi_art)];
@@ -980,6 +973,21 @@
 
 	const float F = 0.5f * (Rs * Rs + Rp * Rp);
 	return F;
+}
+
+-(Vec3D) refract
+    : (const Vec3D *) wi
+    : (const Vec3D *) wm
+    : (const float)   eta
+{
+    
+//	const float cos_theta_i = vec3d_vv_dot(wi, wm);
+//	const float cos_theta_t2 = 1.0f - (1.0f-cos_theta_i*cos_theta_i) / (eta*eta);
+//	const float cos_theta_t = -sqrtf(fmaxf(0.0f,cos_theta_t2));
+//    
+//    
+//    
+//	return wm * (dot(wi, wm) / eta + cos_theta_t) - wi / eta;
 }
 
 
