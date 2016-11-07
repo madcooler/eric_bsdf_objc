@@ -92,6 +92,8 @@
 		648E7CBE4B0F466E824411DC /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
 		84DBF1CBD811446A973C9DE1 /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
 		B30697F1BBBC4E13BEAD0014 /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		C301CBE41DD0CE0200F9545D /* test_single_scattering.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = test_single_scattering.h; path = Eric_BSDF/test_single_scattering.h; sourceTree = "<group>"; };
+		C301CBE51DD0CE2700F9545D /* basic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = basic.h; path = Eric_BSDF/basic.h; sourceTree = "<group>"; };
 		C36100991DCC9C2500ED6D67 /* BasicFunctionCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BasicFunctionCollection.h; path = Eric_BSDF/BasicFunctionCollection.h; sourceTree = "<group>"; };
 		C361009A1DCC9C2500ED6D67 /* EricBSDF_BasicFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EricBSDF_BasicFunctions.h; path = Eric_BSDF/EricBSDF_BasicFunctions.h; sourceTree = "<group>"; };
 		C361009B1DCC9C2500ED6D67 /* FresnelFunctionCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FresnelFunctionCollection.h; path = Eric_BSDF/FresnelFunctionCollection.h; sourceTree = "<group>"; };
@@ -117,6 +119,8 @@
 		58D830CF44FA4AD8A4CE32ED /* eric_bsdf */ = {
 			isa = PBXGroup;
 			children = (
+				C301CBE51DD0CE2700F9545D /* basic.h */,
+				C301CBE41DD0CE0200F9545D /* test_single_scattering.h */,
 				648E7CBE4B0F466E824411DC /* CMakeLists.txt */,
 				3EDEDCFC74A74B7D905CBC4C /* eric_bsdf.m */,
 			);

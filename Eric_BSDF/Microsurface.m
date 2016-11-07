@@ -59,7 +59,8 @@
 -(double) generateRandomNumber
 {
     double u1;
-    u1 = [ randomGenerator valueFromNewSequence];
+//    u1 = [ randomGenerator valueFromNewSequence];
+    u1 = 0.4;
     return u1;
 }
 
@@ -570,7 +571,7 @@
     Vec3D wr_art = vec3_to_Vec3D( wr );
     
 	float hr = 1.0f + [ m_microsurfaceheight invC1:0.999f];
-	bool outside = true;
+	BOOL outside = YES;
 
 	float sum = 0.0f;
 	
@@ -623,7 +624,7 @@
 		// next direction
 		//wr = samplePhaseFunction(-wr, outside, outside);
         
-        wr_art = [self samplePhaseFunction: & neg_wr_art :outside :outside];
+        wr_art = [self samplePhaseFunction: & neg_wr_art :outside : &outside];
         wr = Vec3D_to_vec3(&wr_art);
         
 		// if NaN (should not happen, just in case)
@@ -751,8 +752,10 @@
 	else // transmission
 	{
         
-        Vec3D wh_art = VEC3D(0,0,0);
+        Vec3D wh_art = VEC3D(0, 0, 0);
+        
         vec3d_dv_mul_dv_mul_add_v(1, wi_art, eta, wo_art, &wh_art);
+        vec3d_norm_v(&wh_art);
         vec3d_negate_v(&wh_art);
         
         if (wi_outside)
@@ -854,7 +857,8 @@
     }
 	else
 	{
-		* wo_outside = !wi_outside;
+		*wo_outside = !wi_outside;
+        
         
         Vec3D wo_art = VEC3D(0,0,0);
         

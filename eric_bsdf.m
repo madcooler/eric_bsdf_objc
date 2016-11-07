@@ -13,6 +13,47 @@
 
 #import "Eric_BSDF/Microsurface.h"
 
+void test_single_scattering(ART_GV  * art_gv)
+{
+    struct vec3 wi = vec3(2,-3, 6);
+    //generateRandomDirectionUp();
+    struct vec3 wo = vec3(1, 3, -7);
+    
+    
+    Vec3D wi_art = vec3_to_Vec3D(wi);
+    //vec3d_negate_v(&wi_art);
+    vec3d_norm_v(&wi_art);
+    Vec3D wo_art = vec3_to_Vec3D(wo);
+    vec3d_norm_v(&wo_art);
+    
+    Microsurface * m = [ALLOC_INIT_OBJECT(MicrosurfaceDielectric)
+                        : NO
+                        : NO
+                        : 0.5
+                        : 0.5
+                        : 1.5
+                        ];
+    
+    const int N = 100000;
+    // eval truncated random walk (loop because eval is stochastic)
+    double V = 0;
+    for(int n=0 ; n<N ; ++n)
+    {
+        V += [m eval: &wi_art: &wo_art :1] / (double)N;
+    }
+    
+    // eval single (loop because single of diffuse is also stochastic)
+    double V_single = 0;
+    for(int n=0 ; n<N ; ++n)
+    {
+        V_single += [m evalSingleScattering: &wi_art: &wo_art] / (double)N;
+
+    }
+
+    printf ( "random␣walk␣cut␣after␣1st␣bounce␣=␣%f \n",V );
+    printf ( "single␣scattering␣=␣%f \n" , V_single );
+
+}
 
 // define some default values
 #define     IMP_DEFAULT_INCIDENT_ANGLE          40 DEGREES
@@ -47,7 +88,8 @@ int eric_bsdf(
     MicrosurfaceConductor * mc;
     mc = [ALLOC_INIT_OBJECT(MicrosurfaceConductor) : YES: YES:0.1:0.1];
     float a = [mc eval:&v3d_i :&v3d_o :0];
-
+    
+    test_single_scattering(art_gv);
 
 /* ---------------------------------------------------------------------------
     The standard options common to all ART command line applications are
