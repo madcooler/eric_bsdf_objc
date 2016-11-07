@@ -59,8 +59,8 @@
 -(double) generateRandomNumber
 {
     double u1;
-//    u1 = [ randomGenerator valueFromNewSequence];
-    u1 = 0.4;
+    u1 = [ randomGenerator valueFromNewSequence];
+//    u1 = 0.4;
     return u1;
 }
 
