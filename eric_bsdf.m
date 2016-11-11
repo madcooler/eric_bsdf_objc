@@ -13,26 +13,66 @@
 
 #import "Eric_BSDF/Microsurface.h"
 
-void test_single_scattering(ART_GV  * art_gv)
+
+void test_reflection_sample(
+    ART_GV                          * art_gv,
+    ArcObject <ArpRandomGenerator>  *  randomGenerator
+    )
 {
-    struct vec3 wi = vec3(2,-3, 6);
+    struct vec3 wi = vec3(-0.64278757572174072,0, 0.76604443788528442);
     //generateRandomDirectionUp();
-    struct vec3 wo = vec3(1, 3, -7);
+//    struct vec3 wo = vec3(0.4903473153283226, 0.20888626573301827, 0.84612412702771999);
     
     
     Vec3D wi_art = vec3_to_Vec3D(wi);
-    //vec3d_negate_v(&wi_art);
+    vec3d_norm_v(&wi_art);
+//    Vec3D wo_art = vec3_to_Vec3D(wo);
+//    vec3d_norm_v(&wo_art);
+    
+    Microsurface * m = [ALLOC_INIT_OBJECT(MicrosurfaceConductor)
+                        : NO
+                        : NO
+                        : 0.1
+                        : 0.1
+                        //: 1.5
+                        ];
+    
+    [m initRandomNumberGenerator:randomGenerator];
+    
+    Vec3D sampledReflectionDirection = [m sample
+                        : & wi_art
+                        ];
+
+
+}
+
+
+
+// this test has been passed 
+void test_single_scattering(
+    ART_GV                          * art_gv,
+    ArcObject <ArpRandomGenerator>  *  randomGenerator
+    )
+{
+    struct vec3 wi = vec3(-0.64278757572174072,0, 0.76604443788528442);
+    //generateRandomDirectionUp();
+    struct vec3 wo = vec3(0.4903473153283226, 0.20888626573301827, 0.84612412702771999);
+    
+    
+    Vec3D wi_art = vec3_to_Vec3D(wi);
     vec3d_norm_v(&wi_art);
     Vec3D wo_art = vec3_to_Vec3D(wo);
     vec3d_norm_v(&wo_art);
     
-    Microsurface * m = [ALLOC_INIT_OBJECT(MicrosurfaceDielectric)
+    Microsurface * m = [ALLOC_INIT_OBJECT(MicrosurfaceConductor)
                         : NO
                         : NO
-                        : 0.5
-                        : 0.5
-                        : 1.5
+                        : 0.1
+                        : 0.1
+                        //: 1.5
                         ];
+    
+    [m initRandomNumberGenerator:randomGenerator];
     
     const int N = 100000;
     // eval truncated random walk (loop because eval is stochastic)
@@ -54,6 +94,69 @@ void test_single_scattering(ART_GV  * art_gv)
     printf ( "single␣scattering␣=␣%f \n" , V_single );
 
 }
+
+// this test has been passed
+void test_sample_bsdf(
+    ART_GV                          * art_gv,
+    ArcObject <ArpRandomGenerator>  * randomGenerator
+    )
+{
+    struct vec3 wi = vec3(-0.64278757572174072,0, 0.76604443788528442);
+//    struct vec3 wi = vec3(2, -3, 6);
+    //generateRandomDirectionUp();
+    //struct vec3 wo = vec3(1, 3, -7);
+    
+    
+    Vec3D wi_art = vec3_to_Vec3D(wi);
+    //vec3d_negate_v(&wi_art);
+    vec3d_norm_v(&wi_art);
+//    Vec3D wo_art = vec3_to_Vec3D(wo);
+//    vec3d_norm_v(&wo_art);
+    
+    Microsurface * m = [ALLOC_INIT_OBJECT(MicrosurfaceConductor)
+                        : NO
+                        : NO
+                        : 0.1
+                        : 0.1
+//                        : 1.5
+                        ];
+    
+    [m initRandomNumberGenerator:randomGenerator];
+    
+    // quadrature with eval p(wi, wo)
+    double quadrature_int_x = 0;
+    double quadrature_int_y = 0;
+    double quadrature_int_z = 0;
+    double quadrature_int_x2 = 0;
+    double quadrature_int_y2 = 0;
+    double quadrature_int_z2 = 0;
+    
+    for(double theta_o=0 ; theta_o < M_PI ; theta_o += 0.005)
+        for(double phi_o=0 ; phi_o < 2.0*M_PI ; phi_o += 0.005)
+        {
+            Vec3D wo_art = VEC3D(cos(phi_o)*sin(theta_o), sin(phi_o)*sin(theta_o), cos(theta_o));
+            
+            // stochastic evaluation
+            const int N = 10;
+            double value_current = 0;
+            for(int n=0 ; n<N ; ++n)
+            {
+                value_current += (double)[m eval:&wi_art: &wo_art:0] / (double) N;
+            }
+            
+            struct vec3 wo = Vec3D_to_vec3(&wo_art);
+            const double d = 0.005*0.005*fabs(sin(theta_o)) * value_current;
+            quadrature_int_x += d * wo.x;
+            quadrature_int_y += d * wo.y;
+            quadrature_int_z += d * wo.z;
+            quadrature_int_x2 += d * wo.x * wo.x;
+            quadrature_int_y2 += d * wo.y * wo.y;
+            quadrature_int_z2 += d * wo.z * wo.z;
+        }
+
+
+}
+
 
 // define some default values
 #define     IMP_DEFAULT_INCIDENT_ANGLE          40 DEGREES
@@ -85,12 +188,24 @@ int eric_bsdf(
     v3d_i = vec3_to_Vec3D(v1);
     v3d_o = vec3_to_Vec3D(wi_11);
     
-    MicrosurfaceConductor * mc;
-    mc = [ALLOC_INIT_OBJECT(MicrosurfaceConductor) : YES: YES:0.1:0.1];
-    float a = [mc eval:&v3d_i :&v3d_o :0];
-    
-    test_single_scattering(art_gv);
+    ArcObject <ArpRandomGenerator> * randomGenerator;
 
+    randomGenerator = ARCRANDOMGENERATOR_NEW(
+                        RANDOM_SEQUENCE,
+                        100000000,
+                        ART_GLOBAL_REPORTER
+                        );
+
+    
+//    MicrosurfaceConductor * mc;
+//    mc = [ALLOC_INIT_OBJECT(MicrosurfaceConductor) : YES: YES:0.1:0.1];
+//    float a = [mc eval:&v3d_i :&v3d_o :0];
+    
+//    test_single_scattering(art_gv,randomGenerator);
+    
+    test_sample_bsdf(art_gv,randomGenerator);
+    
+//      test_reflection_sample(art_gv, randomGenerator);
 /* ---------------------------------------------------------------------------
     The standard options common to all ART command line applications are
     defined by this macro.

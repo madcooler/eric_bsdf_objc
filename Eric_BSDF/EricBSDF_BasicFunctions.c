@@ -100,8 +100,9 @@ double sign(double x)
 {
     if(x>0)
         return 1;
-    else
+    if(x<0)
         return -1;
+    return 0;
 }
 
 int IsFiniteNumber(double x)
@@ -110,8 +111,7 @@ int IsFiniteNumber(double x)
 }
 
 
-
- // build orthonormal basis (Building an Orthonormal Basis from a 3D Unit Vector Without Normalization, [Frisvad2012])
+// build orthonormal basis (Building an Orthonormal Basis from a 3D Unit Vector Without Normalization, [Frisvad2012])
 void buildOrthonormalBasis(struct vec3 * omega_1, struct vec3 * omega_2, const struct vec3 * omega_3)
 {
 	if(omega_3->z < -0.9999999f)

@@ -14,6 +14,8 @@
 // in this code, incident light should always points away from surface
 @interface Microsurface : ArcObject
 {
+    float m_eta;
+    float m_k;
 @public
 
     // height distribution
@@ -32,14 +34,31 @@
     :(float)    alpha_y
     ;
 
+-(void) init_material
+    :(float)    n
+    :(float)    k
+    ;
+
 -(void) dealloc
     ;
 
-    // evaluate BSDF with a random walk (stochastic but unbiased)
-	// scatteringOrder=0 --> contribution from all scattering events
-	// scatteringOrder=1 --> contribution from 1st bounce only
-	// scatteringOrder=2 --> contribution from 2nd bounce only, etc..
+-(void) initRandomNumberGenerator
+    :(ArcObject <ArpRandomGenerator>  *) randomGen
+    ;
+
+// evaluate BSDF with a random walk (stochastic but unbiased)
+// scatteringOrder=0 --> contribution from all scattering events
+// scatteringOrder=1 --> contribution from 1st bounce only
+// scatteringOrder=2 --> contribution from 2nd bounce only, etc..
+// this method evaluate cosine weighted BSDF
 -(float) eval
+    : (const Vec3D *) wi_art
+    : (const Vec3D *) wo_art
+    : (const int )    scatteringOrder
+    ;
+
+// evaluate unweighted BSDF
+-(float) evalBSDF
     : (const Vec3D *) wi_art
     : (const Vec3D *) wo_art
     : (const int )    scatteringOrder
@@ -91,6 +110,34 @@
     : (const Vec3D *) wo_art
     ;
 
+-(double) Fresnel_Reflection_plain
+            :(double)   theta
+            :(double)   n1
+            :(double)   k1
+            :(double)   n2
+            :(double)   k2
+            ;
+
+-(double) Fresnel_Refraction_plain
+            :(double) theta
+            :(double) n1
+            :(double) k1
+            :(double) n2
+            :(double) k2
+            ;
+
+-(void) reflect
+    :(const Vec3D *) wi_art
+    :(const Vec3D *) wm_art
+    :(      Vec3D *) wo_art
+    ;
+
+-(void) refract
+    : (const Vec3D *) wi_art
+    : (const Vec3D *) wm_art
+    : (const float)   eta
+    : (      Vec3D *) wo_art
+    ;
 
 @end
 
@@ -164,7 +211,7 @@
 
 @interface MicrosurfaceDielectric : Microsurface
 {
-    float m_eta;
+    
 }
 
 -(id) init
@@ -181,18 +228,22 @@
     : (const float)   eta
     ;
 
--(Vec3D) refract
-    : (const Vec3D *) wi
-    : (const Vec3D *) wm
-    : (const float)   eta
-    ;
+
 
     
-    // evaluate BSDF with a random walk (stochastic but unbiased)
-	// scatteringOrder=0 --> contribution from all scattering events
-	// scatteringOrder=1 --> contribution from 1st bounce only
-	// scatteringOrder=2 --> contribution from 2nd bounce only, etc..
+// evaluate BSDF with a random walk (stochastic but unbiased)
+// scatteringOrder=0 --> contribution from all scattering events
+// scatteringOrder=1 --> contribution from 1st bounce only
+// scatteringOrder=2 --> contribution from 2nd bounce only, etc..
+// evaluate cosine-weighted BSDF
 -(float) eval
+    : (const Vec3D *) wi_art
+    : (const Vec3D *) wo_art
+    : (const int )    scatteringOrder
+    ;
+
+// evaluate unweighted BSDF
+-(float) evalBSDF
     : (const Vec3D *) wi_art
     : (const Vec3D *) wo_art
     : (const int )    scatteringOrder
