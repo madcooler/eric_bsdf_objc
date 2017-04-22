@@ -880,7 +880,8 @@
                        (0.25f *
                        [m_microsurfaceslope D_wi : wi_art: &wh_art]
                        / vec3d_vv_dot(wi_art, &wh_art)
-                       * [self Fresnel : wi_art :& wh_art :eta] ):
+                       * [self Fresnel : wi_art :& wh_art :eta]
+                        ):
                        (0.25f
                        * [m_microsurfaceslope D_wi : & neg_wi_art : &neg_wh_art]
                        / vec3d_vv_dot( & neg_wi_art,  &neg_wh_art)

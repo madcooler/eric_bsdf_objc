@@ -13,6 +13,101 @@
 
 #import "Eric_BSDF/Microsurface.h"
 
+Vec3D generateIncidentLight_Rad(double theta_rad)
+{
+    float theta = theta_rad ;
+    float phi   = 180 * MATH_DEG_TO_RAD ;
+    // calculate cartesian coordinates from spherical angles
+    float zz  = cosf(theta);
+    float tmp = sinf(theta);
+    float xx  = tmp * cosf(phi);
+    float yy  = tmp * sinf(phi);
+    
+    // create a downward pointing, incident light direction vector based on the previously generated cartesian coordinates
+    Vec3D incidentLightDirection = VEC3D(xx, yy, zz);
+    return incidentLightDirection;
+}
+
+void test_normalisation(
+    ART_GV                          * art_gv,
+    ArcObject <ArpRandomGenerator>  *  randomGenerator
+    )
+{
+    struct vec3 wi = vec3(-0.64278757572174072,0, 0.76604443788528442);
+    //generateRandomDirectionUp();
+    //struct vec3 wo = vec3(0.4903473153283226, 0.20888626573301827, 0.84612412702771999);
+    
+    
+    Vec3D wi_art = generateIncidentLight_Rad(1.01);
+    vec3d_norm_v(&wi_art);
+    
+    
+    Microsurface * m = [ALLOC_INIT_OBJECT(MicrosurfaceDielectric)
+                        : NO
+                        : YES
+                        : 0.25
+                        : 0.25
+                        : 1.5
+                        ];
+    
+    
+    [m initRandomNumberGenerator:randomGenerator];
+    
+    
+    // quadrature \int p(wi, wo) dwo
+    double value_quadrature = 0;
+    double normalised_bsdf  = 0;
+    double bsdf_1 = 0;
+    double bsdf_2 = 0;
+    double bsdf_3 = 0;
+    
+    int count = 0;
+    
+    double step = 0.01;
+    
+//    for(double theta_o=M_PI/2 ; theta_o < M_PI ; theta_o += step)
+    for(double theta_o=0 ; theta_o < M_PI/2 ; theta_o += step)
+        for(double phi_o=0 ; phi_o < 2.0*M_PI ; phi_o += step) {
+            double x = cos(phi_o)*sin(theta_o);
+            double y = sin(phi_o)*sin(theta_o);
+            double z = cos(theta_o);
+            struct vec3 wo = vec3(x,y,z);
+            Vec3D wo_art = vec3_to_Vec3D(wo);
+            vec3d_norm_v(&wo_art);
+        
+            const int N = 10;
+            double value_current = 0;
+            double bounce_1 = 0;
+            double bounce_2 = 0;
+            double bounce_3 = 0;
+            for(int n=0 ; n<N ; ++n)
+            {
+                count++;
+                if(theta_o > 2.45)
+                {
+                    printf("");
+                }
+
+//                value_current += [m eval:&wi_art:&wo_art:0];
+                bounce_1 += [m eval:&wi_art:&wo_art:1];
+                bounce_2 += [m eval:&wi_art:&wo_art:2];
+                bounce_3 += [m eval:&wi_art:&wo_art:3];
+            }
+                normalised_bsdf += step*step*fabs(sin(theta_o)) * value_current / N;
+                bsdf_1 += step*step*fabs(sin(theta_o)) * bounce_1 / N;
+                bsdf_2 += step*step*fabs(sin(theta_o)) * bounce_2 / N;
+                bsdf_3 += step*step*fabs(sin(theta_o)) * bounce_3 / N;
+        
+//            value_quadrature += 0.005*0.005*fabs(sin(theta_o)) * (double)[m evalPhaseFunction:&wi_art:&wo_art];
+        }
+    // display
+    printf( "\\int f_p(wi, wo) dwo = \t\t %f \n",  normalised_bsdf );
+    printf( "\\int p(wi, wo) dwo = \t\t %f \n",  value_quadrature );
+    printf( "1st bounce = \t\t %f \n",  bsdf_1 );
+    printf( "2nd bounce = \t\t %f \n",  bsdf_2 );
+    printf( "3rd bounce = \t\t %f \n",  bsdf_3 );
+    RELEASE_OBJECT(m);
+}
 
 void test_reflection_sample(
     ART_GV                          * art_gv,
@@ -64,12 +159,12 @@ void test_single_scattering(
     Vec3D wo_art = vec3_to_Vec3D(wo);
     vec3d_norm_v(&wo_art);
     
-    Microsurface * m = [ALLOC_INIT_OBJECT(MicrosurfaceConductor)
+    Microsurface * m = [ALLOC_INIT_OBJECT(MicrosurfaceDielectric)
                         : NO
                         : NO
                         : 0.1
                         : 0.1
-                        //: 1.5
+                        : 1.5
                         ];
     
     [m initRandomNumberGenerator:randomGenerator];
@@ -79,14 +174,14 @@ void test_single_scattering(
     double V = 0;
     for(int n=0 ; n<N ; ++n)
     {
-        V += [m eval: &wi_art: &wo_art :1] / (double)N;
+        V += [m eval: &wi_art: &wo_art :2] / (double)N;
     }
     
     // eval single (loop because single of diffuse is also stochastic)
     double V_single = 0;
     for(int n=0 ; n<N ; ++n)
     {
-        V_single += [m evalSingleScattering: &wi_art: &wo_art] / (double)N;
+//        V_single += [m evalSingleScattering: &wi_art: &wo_art] / (double)N;
 
     }
 
@@ -202,8 +297,9 @@ int eric_bsdf(
 //    float a = [mc eval:&v3d_i :&v3d_o :0];
     
 //    test_single_scattering(art_gv,randomGenerator);
+    test_normalisation(art_gv, randomGenerator);
     
-    test_sample_bsdf(art_gv,randomGenerator);
+//    test_sample_bsdf(art_gv,randomGenerator);
     
 //      test_reflection_sample(art_gv, randomGenerator);
 /* ---------------------------------------------------------------------------

@@ -142,8 +142,9 @@ dependencies: \
   /Users/administrator/Library/ART_Resources/arm2art/include/ArMuellerMatrix.h \
   /Users/administrator/Library/ART_Resources/arm2art/include/ArStokesVectorHeroSample.h \
   /Users/administrator/Library/ART_Resources/arm2art/include/ArMuellerMatrixHeroSample.h \
-  /Users/administrator/Library/ART_Resources/arm2art/include/ArCrosstalk.h \
+  /Users/administrator/Library/ART_Resources/arm2art/include/ArCrosstalk500.h \
   /Users/administrator/Library/ART_Resources/arm2art/include/ArLightAndAttenuationSubsystemManagement.h \
+  /Users/administrator/Library/ART_Resources/arm2art/include/ArCrosstalk.h \
   /Users/administrator/Library/ART_Resources/arm2art/include/ArCrosstalkSample.h \
   /Users/administrator/Library/ART_Resources/arm2art/include/ArCrosstalkHeroSample.h \
   /Users/administrator/Library/ART_Resources/arm2art/include/ArLightIntensity.h \
@@ -452,6 +453,7 @@ dependencies: \
   /Users/administrator/Library/ART_Resources/arm2art/include/ArnWardSurfaceMaterial.h \
   /Users/administrator/Library/ART_Resources/arm2art/include/MicrofacetDistributions.h \
   /Users/administrator/Library/ART_Resources/arm2art/include/ART_DefaultSurfaceMaterial.h \
+  /Users/administrator/Library/ART_Resources/arm2art/include/ArnFluorescentSurfaceMaterial.h \
   /Users/administrator/Library/ART_Resources/arm2art/include/ArnLayeredSurfaceMaterial.h \
   /Users/administrator/Library/ART_Resources/arm2art/include/ArnMappedSurfaceMaterial.h \
   /Users/administrator/Library/ART_Resources/arm2art/include/BlendedSurfacesCorrectnessTesting.h \
@@ -475,6 +477,7 @@ dependencies: \
   /Users/administrator/Library/ART_Resources/arm2art/include/ArcInfiniteSphereLightsource.h \
   /Users/administrator/Library/ART_Resources/arm2art/include/ArcPointLightsource.h \
   /Users/administrator/Library/ART_Resources/arm2art/include/ArcSkydomeLightsource.h \
+  /Users/administrator/Library/ART_Resources/arm2art/include/ArcComplexSkydomeLightsource.h \
   /Users/administrator/Library/ART_Resources/arm2art/include/ArcBinarySkydomeLightsource.h \
   /Users/administrator/Library/ART_Resources/arm2art/include/ArnLightsourceCollection.h \
   /Users/administrator/Library/ART_Resources/arm2art/include/ArnLightsourceCollector.h \
@@ -534,5 +537,4 @@ dependencies: \
   /Users/administrator/Library/ART_Resources/arm2art/include/ColourAndLightSubsystem.h \
   /Users/administrator/Desktop/eric_bsdf/Eric_BSDF/MicrosurfaceSlope.h \
   /Users/administrator/Desktop/eric_bsdf/Eric_BSDF/EricBSDF_BasicFunctions.h \
-  /Users/administrator/Desktop/eric_bsdf/Eric_BSDF/MicrosurfaceHeight.h \
-  /Users/administrator/Desktop/eric_bsdf/Eric_BSDF/BasicFunctionCollection.h
+  /Users/administrator/Desktop/eric_bsdf/Eric_BSDF/MicrosurfaceHeight.h
